@@ -25,7 +25,7 @@ export function Navigation() {
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#3A6FF7] to-[#C5A9FF] flex items-center justify-center glow-warm transition-all duration-300 group-hover:scale-110">
             <span className="text-white font-bold">A</span>
           </div>
-          <span className="text-xl font-semibold text-white tracking-tight">Avellox Studio</span>
+          <span className="text-xl font-semibold text-white tracking-tight">Avellox</span>
         </Link>
 
         {/* Desktop Navigation */}

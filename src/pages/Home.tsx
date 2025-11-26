@@ -46,9 +46,7 @@ export function Home() {
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           {/* Tagline Strip */}
-          <div className="mb-8 text-[#C5A9FF]/80 text-sm tracking-wider">
-            Game Development • Interactive Art • Visual Storytelling • UX/UI Experiments
-          </div>
+          <div className="mb-8 text-[#C5A9FF]/80 text-sm tracking-wider">Game Development • Interactive Art • Visual Storytelling • UX/UI Experiments</div>
 
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/30 rounded-full mb-8 glow-warm">
@@ -57,19 +55,15 @@ export function Home() {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-6xl md:text-8xl text-white mb-6 tracking-tight">
-            Avellox Studio
-          </h1>
+          <h1 className="text-6xl md:text-8xl text-white mb-6 tracking-tight"> Avellox </h1>
 
           {/* Subheading */}
-          <p className="text-2xl md:text-3xl text-white/80 mb-12 max-w-3xl mx-auto">
-            Crafting Interactive Worlds & Visual Stories
-          </p>
+          <p className="text-2xl md:text-3xl text-white/80 mb-12 max-w-3xl mx-auto">Crafting Interactive Worlds & Visual Stories</p>
 
           {/* Description */}
           <p className="text-lg text-white/60 mb-12 max-w-2xl mx-auto">
            I create character-driven stories, cozy games, and entertaining digital art. 
-            Creating unique experiences that combine heart and imagination.
+          Creating unique experiences that combine heart and imagination.
           </p>
 
           {/* CTA Buttons */}
@@ -77,16 +71,12 @@ export function Home() {
             <CustomButton
               variant="primary"
               onClick={() => navigate('/projects')}
-              className="group flex items-center gap-2"
-            >
-              View Projects
+              className="group flex items-center gap-2">View Projects
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </CustomButton>
             <CustomButton
               variant="secondary"
-              onClick={() => navigate('/contact')}
-            >
-              Get in Touch
+              onClick={() => navigate('/contact')}>Get in Touch
             </CustomButton>
           </div>
 
@@ -244,11 +234,11 @@ export function Home() {
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFC7A8]/20 border border-[#FFC7A8]/30 rounded-full mb-6">
                 <Sparkles className="text-[#FFC7A8]" size={16} />
-                <span className="text-[#0D1018]/80 text-sm">About the Studio</span>
+                <span className="text-[#0D1018]/80 text-sm">About Me</span>
               </div>
               
               <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-6">
-                Behind the Studio
+                Behind the Developer
               </h2>
               
               <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">
@@ -420,9 +410,7 @@ export function Home() {
             </CustomButton>
             <CustomButton
               variant="secondary"
-              onClick={() => navigate('/projects')}
-            >
-              View All Projects
+              onClick={() => navigate('/projects')}>View All Projects
             </CustomButton>
           </div>
         </div>
