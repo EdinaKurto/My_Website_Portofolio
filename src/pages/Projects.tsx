@@ -77,21 +77,16 @@ export function Projects() {
     <div className="min-h-screen py-24 px-6 film-grain">
       {/* Warm background glow */}
       <div className="absolute inset-0 gradient-radial-warm opacity-50"></div>
-      
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/30 rounded-full mb-6">
             <Sparkles className="text-[#C5A9FF]" size={16} />
-            <span className="text-white/90 text-sm">Handcrafted with care</span>
+            <span className="text-white/90 text-sm">Developed with care</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl text-white mb-4">
-            My Projects
-          </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            A collection of cozy games, thoughtful designs, and playful experiments ✨
-          </p>
+          <h1 className="text-5xl md:text-6xl text-white mb-4">My Projects</h1>
+          <p className="text-xl text-white/70 max-w-2xl mx-auto">A collection of cozy games, designs, and assets</p>
         </div>
 
         {/* Filters */}
@@ -104,8 +99,7 @@ export function Projects() {
                 selectedCategory === category
                   ? 'bg-gradient-to-r from-[#3A6FF7] to-[#C5A9FF] text-white glow-warm shadow-lg'
                   : 'bg-[#1a1d29]/60 text-white/70 border border-[#3A6FF7]/20 hover:border-[#C5A9FF]/50 hover:text-white hover:bg-[#1a1d29]'
-              }`}
-            >
+              }`}>
               {category}
             </button>
           ))}
@@ -128,9 +122,7 @@ export function Projects() {
         {/* Empty State */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-white/50 text-lg">
-              No projects in this category yet — but stay tuned! 🌟
-            </p>
+            <p className="text-white/50 text-lg">No projects in this category yet — but stay tuned! </p>
           </div>
         )}
       </div>

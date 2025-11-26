@@ -63,7 +63,7 @@ export function Experience() {
             My Creative Journey
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            A mix of game dev, design, art, and cozy experiments 🌱
+            A mix of game dev, design, art, and cozy experiments 
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export function Experience() {
           <Sparkles className="text-[#C5A9FF] mx-auto mb-4" size={32} />
           <p className="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto">
             Every project teaches me something new. I'm always exploring, experimenting, 
-            and finding joy in the creative process. Let's make something magical together! ✨
+            and finding joy in the creative process. Let's make something magical together!
           </p>
         </div>
       </div>

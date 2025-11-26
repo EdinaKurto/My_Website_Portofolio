@@ -6,7 +6,6 @@ import { CustomButton } from '../components/CustomButton';
 export function ProjectSingle() {
   const navigate = useNavigate();
 
-  // Mock project data - in a real app, this would come from route params
   const project = {
     title: 'Her Hands Remember',
     tagline: 'A cozy narrative puzzle built in Unity.',

@@ -161,7 +161,7 @@ export function Home() {
               <p className="text-[#0D1018]/60 leading-relaxed">
                 Whether it's building interactive worlds in Unity, designing playful UI systems, 
                 or creating digital artwork inspired by memory and culture — I approach each 
-                project with curiosity, care, and a touch of magic. ✨
+                project with curiosity, care, and a touch of magic.
               </p>
             </div>
 
@@ -250,7 +250,7 @@ export function Home() {
               <p className="text-[#0D1018]/60 leading-relaxed mb-6">
                 From my grandmother's house to the misty forests of Caedwig, every piece 
                 I create carries a bit of memory, warmth, and wonder. This is where 
-                handcrafted experiences come to life. 🌿
+                handcrafted experiences come to life.
               </p>
 
               <CustomButton
