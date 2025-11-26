@@ -1,5 +1,4 @@
 import { LucideIcon } from 'lucide-react';
-
 interface MicroProjectCardProps {
   icon: LucideIcon;
   title: string;
