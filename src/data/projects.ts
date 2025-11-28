@@ -151,15 +151,15 @@ export const projects: Project[] = [
   {
     id: 3,
     title: 'Kenai Animation WIP',
-    tagline: 'Warm, friendly interface system for creative apps.',
-    shortDescription: 'Warm and friendly design system for creative applications',
-    category: 'UI/UX',
+    tagline: 'A character animation bringing my dog Kenai’s personality to life.',
+    shortDescription: 'Animation study exploring movement, charm, and doglike emotion through simple hand-drawn motion.',
+    category: 'Animations',
     coverImage: coverAnimationKenai,
     tags: ['Figma', 'UI Design', 'Components'],
     overview: {
       description:
-        'Cozy UI Kit is a reusable design system focused on softness, clarity, and emotional warmth. It’s made for dashboards, creative tools, and playful web experiences.',
-      role: 'Animation Designer',
+        'This project explores Kenai as an animated character — capturing his playful, loyal, slightly dramatic personality through movement, squash-and-stretch, and expressive timing. The animation focuses on emotional readability: the tilt of the head, the wag of the tail, the shift in weight before a pounce. Everything is designed to feel alive and familiar, like a real dog you already know.',
+      role: '2D Animation Artist',
       timeline: '2024',
       tools: ['Photoshop', 'Krita','Adobe Animate', ],
     },
@@ -171,19 +171,19 @@ export const projects: Project[] = [
     features: [
       {
         icon: PenTool,
-        title: 'Component Library',
+        title: 'Expressive Motion',
         description:
-          'Buttons, inputs, cards, navbars, and modals built with variants and states.',
+          'Subtle timing, anticipation, and weight shifts that make Kenai feel alive and full of emotion.',
       },
       {
         icon: Sparkles,
-        title: 'Soft Visual Language',
+        title: 'Hand-Drawn Charm',
         description:
-          'Rounded corners, subtle shadows, and cozy colors that feel inviting.',
+          'Movements built around who Kenai is — curious, energetic, and slightly goofy in the best way.',
       },
       {
         icon: Code2,
-        title: 'Dev-Friendly Tokens',
+        title: 'Personality-Driven Animation',
         description:
           'Clear spacing, typography, and color tokens that map nicely to code.',
       },
