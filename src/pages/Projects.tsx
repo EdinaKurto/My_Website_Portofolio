@@ -5,7 +5,7 @@ import { projects, ProjectCategory } from '../data/projects';
 
 export function Projects() {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
-  const categories: ProjectCategory[] = ['All', 'Games', 'UI/UX', 'Art', 'Animations'];
+  const categories: ProjectCategory[] = ['All', 'Games', 'UI/UX', 'Assets', 'Animations'];
 
   const filteredProjects =
     selectedCategory === 'All'

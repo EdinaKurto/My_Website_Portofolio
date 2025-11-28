@@ -14,8 +14,20 @@ import coverAnimationKenai  from '../photos/Animation_cover.png';
 import oneAnimationKenai  from '../photos/Animation_1.png';
 import twoAnimationKenai  from '../photos/Animation_2.png';
 import threeAnimationKenai  from '../photos/Animation_3.png';
+import processAnimationKenai  from '../photos/kenai.png';
+import coverShiba  from '../photos/Shiba_cover.png';
+import oneShiba  from '../photos/Shiba_1.png';
+import twoShiba  from '../photos/Shiba_2.png';
+import threeShiba  from '../photos/Shiba_3.png';
+import old1Shiba  from '../photos/Shiba_old_1.png';
+import old2Shiba  from '../photos/Shiba_old_2.png';
+import old3Shiba  from '../photos/Shiba_old_3.png';
+import coverFortuneTeller  from '../photos/FortuneTeller_cover.png';
+import oneFortuneTeller  from '../photos/FortuneTeller_1.png';
+import twoFortuneTeller  from '../photos/FortuneTeller_2.png';
 
-export type ProjectCategory = 'All' | 'Games' | 'UI/UX' | '3D Art' | 'Animations';
+
+export type ProjectCategory = 'All' | 'Games' | 'UI/UX' | 'Assets' | 'Animations';
 export interface ProjectOverview {
   description: string;
   role: string;
@@ -179,7 +191,7 @@ export const projects: Project[] = [
         icon: Sparkles,
         title: 'Hand-Drawn Charm',
         description:
-          'Movements built around who Kenai is — curious, energetic, and slightly goofy in the best way.',
+          'Movements built around who Kenai is curious, energetic, and slightly goofy in the best way.',
       },
       {
         icon: Code2,
@@ -190,34 +202,71 @@ export const projects: Project[] = [
     ],
     process: {
       description:
-        'I started by auditing cozy interfaces and creative apps I love. After defining a type scale and color system, I built components on top and iterated based on how fast I could mock up real screens with the kit.',
+        'The animation began with loose sketches of Kenai’s silhouette and personality poses. From there, I blocked out rough motion passes to study weight, tail rhythm, and how his body settles after movement. I refined the timing through multiple iterations, polishing secondary motion and adding small emotional cues — ear flicks, chest bounce, and soft tail waves. The result is a warm, character-focused animation that captures Kenai’s spirit through expressive hand-drawn motion.',
       images: [
-        'https://images.unsplash.com/photo-1610642436394-81749134ffe8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1760780567530-389d8a3fba75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+        processAnimationKenai,
       ],
     },
   },
 
   {
     id: 4,
-    title: 'Dreamscape Environments',
-    tagline: 'Cozy 3D worlds for immersive indie experiences.',
-    shortDescription: 'Cozy 3D worlds for immersive indie experiences',
-    category: 'Art',
-    coverImage:
-      'https://images.unsplash.com/photo-1666302707255-13651d539be5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    title: 'Dream Life',
+    tagline: 'A cozy virtual Shiba sanctuary built with warmth and charm.',
+    shortDescription: 'A soft, heartwarming virtual pet experience where your Shiba comes to life.',
+    category: 'Games',
+    coverImage:coverShiba,
+    tags: ['Unity', '2D Art', 'Photoshop'],
+    overview: {
+      description:
+        'Welcome to your Shiba sanctuary! Take care of an adorable Shiba Inu in this heartwarming virtual pet game, where affection is everything. Whether youre feeding them tasty treats, scrubbing off the mud from their latest adventure, or playing fun little games, your Shiba is always excited to see you. Your job? Be the best companion ever. Your Shiba has needs: hunger, cleanliness, and affection. Its up to you to keep them happy, healthy, and stylish. Watch your Shiba react with cute expressions and unlock fun outfits as you level up your bond. Every interaction matters, from head pats to bath time!',
+      role: '2D Designer, Programming by TheJayDuck and nobbele',
+      timeline: '2023 – 2024',
+      tools: ['Unity', 'Photoshop', 'C#'],
+    },
+    gallery: [oneShiba,twoShiba,threeShiba,],
+    features: [
+      {
+        icon: Palette,
+        title: 'Affection, Hunger, and Cleanliness',
+        description: 'A simple but expressive needs system that keeps the Shiba reactive, alive, and emotionally readable.',
+      },
+      {
+        icon: Palette,
+        title: 'Multiple rooms',
+        description: 'Explore different cozy spaces—from playrooms to baths—each designed with warm palettes and soft lighting.',
+      },
+      {
+        icon: Sparkles,
+        title: 'Accessories and outfits',
+        description: 'Unlock adorable hats, scarves, bows, and themed costumes that reflect your growing bond.',
+      },
+    ],
+    process: {
+      description:
+        'The project began with simple sketches to define the Shiba’s personality and proportions. From there, I created rough blockouts of each room to test composition, movement flow, and player interaction points. Once the layout felt right, I refined the color palettes to match the emotional tone of each space, soft, wholesome, and calming. In Unity, I layered post-processing effects like warm bloom, gentle fog, and subtle color grading to bring out the dreamy atmosphere. Every iteration focused on making the Shiba feel alive through expressive animations, smooth transitions, and a UI that encourages affection and care.',
+      images: [
+        old1Shiba,old2Shiba,old3Shiba
+      ],
+    },
+  },
+
+   {
+    id: 5,
+    title: 'You Were Always Coming',
+    tagline: 'A quiet, atmospheric narrative unfolding in a forgotten corner of the world.',
+    shortDescription: 'A moody, intimate narrative experience set in a lone fortune-teller’s tent.',
+    category: 'Games',
+    coverImage:coverFortuneTeller ,
     tags: ['Blender', '3D Modeling', 'Unity'],
     overview: {
       description:
-        'Dreamscape Environments is a collection of stylized 3D scenes that feel like concept art you can walk into. Each scene focuses on mood, composition, and lighting.',
-      role: 'Environment Artist',
-      timeline: '2023 – 2024',
-      tools: ['Blender', 'Unity', 'Substance Painter'],
+        'At the edge of nowhere, where the world forgets its name, a single tent waits — silent, still, inevitable. Inside, the air is thick with time. Candles flicker. Velvet breathes secrets. And she is there. The Fortune Teller. She doesn’t ask who you are. She already knows. She sees it in the way you hesitate before sitting. Hears it in the breath you didn’t realize you were holding. Reads it in the way your fingers tremble — not from cold, but memory. You say nothing. She deals three cards.Each one is a mirror. A shard of your past. A wound you buried. A choice you once denied. And now, it returns — not to haunt, but to ask: What will you do with what you carry? You will choose. And she will listen — not with pity, but with purpose. There is no right answer. Only honesty. Only consequence. You may only visit her once. But in truth, you’ve always been walking toward that tent. The question was never if.It was always when.',
+      role: 'Designer and Programmer',
+      timeline: '2025',
+      tools: ['Renpy', 'Krita', 'Python','Photoshop',  ],
     },
-    gallery: [
-      'https://images.unsplash.com/photo-1666302707255-13651d539be5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1715583622581-3245cefe117d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1760780567530-389d8a3fba75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    gallery: [oneFortuneTeller ,twoFortuneTeller,
     ],
     features: [
       {
@@ -228,7 +277,7 @@ export const projects: Project[] = [
       {
         icon: Palette,
         title: 'Atmospheric Color',
-        description: 'Limited palettes tuned to a specific emotion per scene.',
+        description: 'Muted, moody palettes that shift subtly with emotion, theme, and narrative tension.',
       },
       {
         icon: Sparkles,
@@ -238,10 +287,8 @@ export const projects: Project[] = [
     ],
     process: {
       description:
-        'Each scene started as a tiny thumbnail sketch, then a blockout in Blender. Once the composition worked, I pushed colors and lighting, then tested the scene inside Unity with post-processing to see how it feels in motion.',
+        'The project began with mood sketches, tiny thumbnails capturing the weight of silence, the glow of candlelight, and the symbolism of the tent. From there, I built rough 3D blockouts in Blender to test space, rhythm, and where the player’s eye would naturally be drawn. After refining silhouettes and environmental storytelling, I painted over renders to define the emotional color script.\n\nThe final scenes were assembled in Unity, where I layered soft fog, bloom, rim lighting, and subtle film-grain to recreate the feeling of stepping into a forgotten dream. Parallel to the visuals, the narrative was written in Ren’Py, focusing on quiet tension, intimate choices, and the idea that the player is revealing, not discovering, the truth. Every iteration aimed to make the experience feel inevitable, quiet, and deeply personal.',
       images: [
-        'https://images.unsplash.com/photo-1661205827673-4330f088f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-        'https://images.unsplash.com/photo-1666302707255-13651d539be5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
       ],
     },
   },
