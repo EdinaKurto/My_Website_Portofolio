@@ -10,6 +10,10 @@ import coverDucky  from '../photos/Ducky_Holmes_cover.png';
 import oneDucky  from '../photos/Ducky_Holmes_1.png';
 import twoDucky  from '../photos/Ducky_Holmes_2.png';
 import threeDucky  from '../photos/Ducky_Holmes_3.png';
+import coverAnimationKenai  from '../photos/Animation_cover.png';
+import oneAnimationKenai  from '../photos/Animation_1.png';
+import twoAnimationKenai  from '../photos/Animation_2.png';
+import threeAnimationKenai  from '../photos/Animation_3.png';
 
 export type ProjectCategory = 'All' | 'Games' | 'UI/UX' | '3D Art' | 'Animations';
 export interface ProjectOverview {
@@ -146,24 +150,23 @@ export const projects: Project[] = [
 
   {
     id: 3,
-    title: 'Cozy UI Kit',
+    title: 'Kenai Animation WIP',
     tagline: 'Warm, friendly interface system for creative apps.',
     shortDescription: 'Warm and friendly design system for creative applications',
     category: 'UI/UX',
-    coverImage:
-      'https://images.unsplash.com/photo-1661205827673-4330f088f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    coverImage: coverAnimationKenai,
     tags: ['Figma', 'UI Design', 'Components'],
     overview: {
       description:
         'Cozy UI Kit is a reusable design system focused on softness, clarity, and emotional warmth. It’s made for dashboards, creative tools, and playful web experiences.',
-      role: 'Product Designer',
+      role: 'Animation Designer',
       timeline: '2024',
-      tools: ['Figma', 'FigJam'],
+      tools: ['Photoshop', 'Krita','Adobe Animate', ],
     },
     gallery: [
-      'https://images.unsplash.com/photo-1760780567530-389d8a3fba75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1715583622581-3245cefe117d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      'https://images.unsplash.com/photo-1661205827673-4330f088f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      oneAnimationKenai,
+       twoAnimationKenai,
+       threeAnimationKenai,
     ],
     features: [
       {
