@@ -107,7 +107,7 @@ export function ProjectSingle() {
                 <p className="text-white/70">{project.overview.role}</p>
               </div>
 
-              {project.overview.additionalHelp.length !== 0 && (
+              {project.overview.additionalHelp?.length > 0 && (
                 <div className="card-warm p-6 border border-[#C5A9FF]/20">
                   <h3 className="text-white mb-4">Additional Help</h3>
 
