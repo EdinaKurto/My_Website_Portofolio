@@ -3,27 +3,21 @@ import { CustomButton } from '../components/CustomButton';
 import { Mail, MessageSquare, User, Send, Sparkles, Heart } from 'lucide-react';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
-
 export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [statusError, setStatusError] = useState<string | null>(null);
-
-  // replace this with your real Formspree endpoint
   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mnnkzpjl';
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatusMessage(null);
     setStatusError(null);
-
     try {
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
@@ -74,7 +68,6 @@ export function Contact() {
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/30 rounded-full mb-6">
             <Sparkles className="text-[#FFC7A8]" size={16} />
@@ -84,22 +77,16 @@ export function Contact() {
           <h1 className="text-5xl md:text-6xl text-white mb-4">
             Let&apos;s Make Something Together
           </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Share your idea, project, or just say hi. I&apos;d love to hear from you!
-          </p>
+          <p className="text-xl text-white/70 max-w-2xl mx-auto"> Share your idea, project, or just say hi. I&apos;d love to hear from you!</p>
         </div>
 
-        {/* Contact Form */}
         <div className="card-warm backdrop-blur-sm p-8 md:p-12 border border-[#C5A9FF]/30 glow-warm relative">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name Field */}
             <div className="space-y-2">
               <label
                 htmlFor="name"
-                className="flex items-center gap-2 text-white/80 mb-2"
-              >
-                <User size={18} className="text-[#C5A9FF]" />
-                Name
+                className="flex items-center gap-2 text-white/80 mb-2">
+                <User size={18} className="text-[#C5A9FF]" />Name
               </label>
               <Input
                 id="name"
@@ -109,18 +96,13 @@ export function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="bg-[#1a1d29]/80 border-[#C5A9FF]/30 focus:border-[#C5A9FF] focus:ring-[#C5A9FF]/50 text-white placeholder:text-white/40 h-12 rounded-xl"
-              />
+                className="bg-[#1a1d29]/80 border-[#C5A9FF]/30 focus:border-[#C5A9FF] focus:ring-[#C5A9FF]/50 text-white placeholder:text-white/40 h-12 rounded-xl"/>
             </div>
-
-            {/* Email Field */}
             <div className="space-y-2">
               <label
                 htmlFor="email"
-                className="flex items-center gap-2 text-white/80 mb-2"
-              >
-                <Mail size={18} className="text-[#3A6FF7]" />
-                Email
+                className="flex items-center gap-2 text-white/80 mb-2">
+                <Mail size={18} className="text-[#3A6FF7]" />Email
               </label>
               <Input
                 id="email"
@@ -130,18 +112,15 @@ export function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="bg-[#1a1d29]/80 border-[#3A6FF7]/30 focus:border-[#3A6FF7] focus:ring-[#3A6FF7]/50 text-white placeholder:text-white/40 h-12 rounded-xl"
-              />
+                className="bg-[#1a1d29]/80 border-[#3A6FF7]/30 focus:border-[#3A6FF7] focus:ring-[#3A6FF7]/50 text-white placeholder:text-white/40 h-12 rounded-xl"/>
             </div>
 
             {/* Message Field */}
             <div className="space-y-2">
               <label
                 htmlFor="message"
-                className="flex items-center gap-2 text-white/80 mb-2"
-              >
-                <MessageSquare size={18} className="text-[#FFC7A8]" />
-                Message
+                className="flex items-center gap-2 text-white/80 mb-2">
+                <MessageSquare size={18} className="text-[#FFC7A8]" />Message
               </label>
               <Textarea
                 id="message"
@@ -151,8 +130,7 @@ export function Contact() {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="bg-[#1a1d29]/80 border-[#FFC7A8]/30 focus:border-[#FFC7A8] focus:ring-[#FFC7A8]/50 text-white placeholder:text-white/40 resize-none rounded-xl"
-              />
+                className="bg-[#1a1d29]/80 border-[#FFC7A8]/30 focus:border-[#FFC7A8] focus:ring-[#FFC7A8]/50 text-white placeholder:text-white/40 resize-none rounded-xl"/>
             </div>
 
             {/* Status message */}
