@@ -22,23 +22,15 @@ export function About() {
 
   return (
     <div className="min-h-screen py-24 px-6 film-grain relative">
-      {/* Warm background glow */}
       <div className="absolute inset-0 gradient-radial-warm opacity-40"></div>
-      
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/30 rounded-full mb-6">
             <Heart className="text-[#FFC7A8]" size={16} />
             <span className="text-white/90 text-sm">Made with love</span>
           </div>
-          
-          <h1 className="text-5xl md:text-6xl text-white mb-4">
-            About Me
-          </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Building cozy worlds, one pixel at a time 
-          </p>
+          <h1 className="text-5xl md:text-6xl text-white mb-4">About Me</h1>
+          <p className="text-xl text-white/70 max-w-2xl mx-auto">Building cozy worlds, one pixel at a time </p>
         </div>
 
         {/* Main Content */}

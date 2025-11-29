@@ -1,3 +1,4 @@
+// src/pages/Home.tsx
 import { useNavigate } from 'react-router-dom';
 import { CustomButton } from '../components/CustomButton';
 import { FeaturedWorkCard } from '../components/FeaturedWorkCard';
@@ -19,11 +20,13 @@ import {
   Lightbulb,
   Zap,
   Box,
-  Bluetooth,
 } from 'lucide-react';
 import { projects } from '../data/projects';
+import { artworks } from '../data/artworks';
+
 export function Home() {
   const navigate = useNavigate();
+
   const featuredConfig = [
     { id: 1, subtitle: 'Narrative Unity Game' },
     { id: 2, subtitle: 'Mobile Match-3 Game' },
@@ -49,8 +52,12 @@ export function Home() {
     imageUrl: string;
   }[];
 
+  // Use artwork IDs 1, 2, 3 for the home carousel
+  const homeArtworks = artworks.filter((a) => [1, 2, 3].includes(a.id));
+
   return (
     <div className="relative">
+      {/* Hero */}
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden film-grain bg-gradient-to-br from-[#0D1018] via-[#1a1d29] to-[#0D1018]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] gradient-radial-warm opacity-60"></div>
 
@@ -79,28 +86,37 @@ export function Home() {
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="mb-8 text-[#C5A9FF]/80 text-sm tracking-wider">Game Development • Interactive Art • Visual Storytelling • UX/UI Experiments</div>
+          <div className="mb-8 text-[#C5A9FF]/80 text-sm tracking-wider">
+            Game Development • Interactive Art • Visual Storytelling • UX/UI Experiments
+          </div>
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/30 rounded-full mb-8 glow-warm">
             <Sparkles className="text-[#C5A9FF]" size={16} />
             <span className="text-white/90 text-sm">Indie Game Developer</span>
           </div>
-          <h1 className="text-6xl md:text-8xl text-white mb-6 tracking-tight"> Avellox Studio</h1>
+          <h1 className="text-6xl md:text-8xl text-white mb-6 tracking-tight">Avellox Studio</h1>
           <p className="text-2xl md:text-3xl text-white/80 mb-12 max-w-3xl mx-auto">
-            Crafting Interactive Worlds & Visual Stories
+            Crafting Interactive Worlds &amp; Visual Stories
           </p>
 
-          {/* Description */}
-          <p className="text-lg text-white/60 mb-12 max-w-2xl mx-auto">I am a creator focused on handmade digital experiences, from character driven narratives and heart-first games to expressive visual art. My goal is to blend design with programming.</p>
+          <p className="text-lg text-white/60 mb-12 max-w-2xl mx-auto">
+            I am a creator focused on handmade digital experiences, from character driven narratives
+            and heart-first games to expressive visual art. My goal is to blend design with
+            programming.
+          </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <CustomButton
               variant="primary"
               onClick={() => navigate('/projects')}
-              className="group flex items-center gap-2">View Projects
+              className="group flex items-center gap-2"
+            >
+              View Projects
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </CustomButton>
-            <CustomButton variant="secondary" onClick={() => navigate('/contact')}>Get in Touch</CustomButton>
+            <CustomButton variant="secondary" onClick={() => navigate('/contact')}>
+              Get in Touch
+            </CustomButton>
           </div>
 
           {/* Scroll Indicator */}
@@ -109,61 +125,69 @@ export function Home() {
             <div className="w-0.5 h-12 bg-gradient-to-b from-[#C5A9FF] to-transparent"></div>
           </div>
         </div>
+
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A9FF]/50 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FFC7A8]/50 to-transparent"></div>
       </div>
 
-      {/* Featured Work Section - White Background */}
+      {/* Featured Work Section */}
       <section className="py-24 px-6 bg-white relative overflow-hidden">
-        {/* Subtle background decoration */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#C5A9FF]/5 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#3A6FF7]/5 to-transparent rounded-full blur-3xl"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Section Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#3A6FF7]/10 border border-[#3A6FF7]/20 rounded-full mb-6">
               <Sparkles className="text-[#3A6FF7]" size={16} />
               <span className="text-[#0D1018]/80 text-sm">Featured Work</span>
             </div>
-            <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-4">Current Chapters & Prototypes</h2>
-            <p className="text-lg text-[#0D1018]/60 max-w-2xl mx-auto">A glimpse into recent projects that blend storytelling, design, and interaction</p>
+            <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-4">Current Chapters &amp; Prototypes</h2>
+            <p className="text-lg text-[#0D1018]/60 max-w-2xl mx-auto">
+              A glimpse into recent projects that blend storytelling, design, and interaction
+            </p>
           </div>
 
-          {/* Featured Work Cards – now coming from projects[1,2,3] */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredProjects.map((item) => (
               <div
                 key={item.id}
                 className="cursor-pointer"
-                onClick={() => navigate(`/projects/${item.id}`)}>
+                onClick={() => navigate(`/projects/${item.id}`)}
+              >
                 <FeaturedWorkCard
                   title={item.title}
                   subtitle={item.subtitle}
                   imageUrl={item.imageUrl}
-                  description={item.description}/>
+                  description={item.description}
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Creative Identity Section - White Background */}
+      {/* Creative Identity Section */}
       <section className="py-24 px-6 bg-white relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Text Content */}
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/20 rounded-full mb-6">
                 <Wand2 className="text-[#C5A9FF]" size={16} />
                 <span className="text-[#0D1018]/80 text-sm">What I Do</span>
               </div>
               <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-6">Multi-Disciplinary Artist</h2>
-              <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">My practice is a delicate alchemy of game development, evocative narrative design, and visual poetry. I craft experiences that feel less like software and more like a warm memory, where every interaction is deeply personal and meaningful.</p>
-              <p className="text-[#0D1018]/60 leading-relaxed">From sculpting interactive landscapes in Unity to designing seamless, playful UI, or creating illustrations steeped in culture and nostalgia—I infuse every step of the process with genuine curiosity and a touch of magic.</p>
+              <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">
+                My practice is a delicate alchemy of game development, evocative narrative design,
+                and visual poetry. I craft experiences that feel less like software and more like a
+                warm memory, where every interaction is deeply personal and meaningful.
+              </p>
+              <p className="text-[#0D1018]/60 leading-relaxed">
+                From sculpting interactive landscapes in Unity to designing seamless, playful UI, or
+                creating illustrations steeped in culture and nostalgia—I infuse every step of the
+                process with genuine curiosity and a touch of magic.
+              </p>
             </div>
 
-            {/* Right - Identity Boxes Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <CreativeIdentityBox icon={Gamepad2} label="Game Dev" delay={0} />
               <CreativeIdentityBox icon={Pen} label="Narrative Designer" delay={100} />
@@ -176,7 +200,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* Creative Tools Section - White Background */}
+      {/* Toolkit */}
       <section className="py-16 px-6 bg-gradient-to-b from-white to-[#f8f9fa]">
         <div className="max-w-6xl mx-auto text-center">
           <h3 className="text-2xl text-[#0D1018] mb-8">My Creative Toolkit</h3>
@@ -189,42 +213,40 @@ export function Home() {
             <ToolBadge name="Blender" delay={200} />
             <ToolBadge name="Illustrator" delay={250} />
             <ToolBadge name="Ren'Py" delay={300} />
-            <ToolBadge name="Git" delay={350} />
+            <ToolBadge name="GitHub" delay={350} />
           </div>
         </div>
       </section>
 
-      {/* Behind the Studio Section - White Background */}
+      {/* Behind the Studio */}
       <section className="py-24 px-6 bg-[#f8f9fa] relative overflow-hidden">
-        {/* Decorative elements */}
         <div className="absolute top-1/2 right-0 w-64 h-64 bg-[#FFC7A8]/10 rounded-full blur-3xl"></div>
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Images Grid */}
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-2 rounded-2xl overflow-hidden shadow-xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1605191353027-d21e534a419a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3p5JTIwaW50ZXJpb3IlMjBob21lfGVufDF8fHx8MTc2NDExNTY3MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1605191353027-d21e534a419a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                   alt="Cozy studio inspiration"
                   className="w-full h-64 object-cover"
                 />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1632342327403-6f150264009c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBuYXR1cmUlMjBhdG1vc3BoZXJpY3xlbnwxfHx8fDE3NjQxNDk0MTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1632342327403-6f150264009c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                   alt="Caedwig forest reference"
-                  className="w-full h-48 object-cover"/>
+                  className="w-full h-48 object-cover"
+                />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1742440710226-450e3b85c100?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHdvcmtzcGFjZSUyMHN0dWRpb3xlbnwxfHx8fDE3NjQxMjcwMTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1742440710226-450e3b85c100?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                   alt="Creative workspace"
                   className="w-full h-48 object-cover"/>
               </div>
             </div>
 
-            {/* Right - Content */}
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFC7A8]/20 border border-[#FFC7A8]/30 rounded-full mb-6">
                 <Sparkles className="text-[#FFC7A8]" size={16} />
@@ -232,13 +254,21 @@ export function Home() {
               </div>
 
               <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-6">Behind the Developer</h2>
-              <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">Avellox is more than a studio, it's the home of my creative ethos, where the magic of cozy stories meets the logic of game design. I build interactive worlds that echo with a sense of nostalgia, deep culture, and genuine emotion.</p>
-              <p className="text-[#0D1018]/60 leading-relaxed mb-6">My inspiration is drawn from personal memory, whether it's the quiet comfort of a familiar home or the misty, narrative potential of places like the Caedwig Forest. This is where every handcrafted experience is born from warmth and wonder.</p>
-
+              <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">
+                Avellox is more than a studio, it's the home of my creative ethos, where the magic
+                of cozy stories meets the logic of game design. I build interactive worlds that echo
+                with a sense of nostalgia, deep culture, and genuine emotion.
+              </p>
+              <p className="text-[#0D1018]/60 leading-relaxed mb-6">
+                My inspiration is drawn from personal memory, whether it's the quiet comfort of a
+                familiar home or the misty, narrative potential of places like the Caedwig Forest.
+                This is where every handcrafted experience is born from warmth and wonder.
+              </p>
               <CustomButton
                 variant="primary"
                 onClick={() => navigate('/about')}
-                className="group flex items-center gap-2">Learn More About Me
+                className="group flex items-center gap-2">
+                Learn More About Me
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </CustomButton>
             </div>
@@ -246,123 +276,96 @@ export function Home() {
         </div>
       </section>
 
-      {/* Artwork Carousel Section - White Background */}
+      {/* Artwork Carousel – now using real artworks 1–3 */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
           <div className="flex items-center justify-between mb-12">
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/20 rounded-full mb-4">
                 <Palette className="text-[#C5A9FF]" size={16} />
                 <span className="text-[#0D1018]/80 text-sm">Visual Art</span>
               </div>
-              <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-2">Latest Art & Experiments</h2>
-              <p className="text-[#0D1018]/60">Mixed media, digital paintings, and visual storytelling</p>
+              <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-2">Latest Art &amp; Experiments</h2>
+              <p className="text-[#0D1018]/60">Mixed media, digital paintings, and visual storytelling </p>
             </div>
             <CustomButton
               variant="secondary"
               onClick={() => navigate('/artwork')}
-              className="hidden md:flex items-center gap-2 group">
-              View Gallery
+              className="hidden md:flex items-center gap-2 group">View Gallery
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </CustomButton>
           </div>
 
-          {/* Artwork Carousel */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <ArtworkCard
-              title="Fragmenti Doma"
-              medium="Mixed Media Collage"
-              year="2024"
-              imageUrl="https://images.unsplash.com/photo-1705254613735-1abb457f8a60?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGFydHdvcmslMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NjQxNDk0MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"/>
-            <ArtworkCard
-              title="Tišina Između Nas"
-              medium="Digital Painting"
-              year="2024"
-              imageUrl="https://images.unsplash.com/photo-1744686909443-eb72a54de998?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwYXJ0JTIwcGFpbnRpbmd8ZW58MXx8fHwxNzY0MTQ5NDE2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            />
-            <ArtworkCard
-              title="Caedwig Forest"
-              medium="Concept Art"
-              year="2025"
-              imageUrl="https://images.unsplash.com/photo-1632342327403-6f150264009c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3Jlc3QlMjBuYXR1cmUlMjBhdG1vc3BoZXJpY3xlbnwxfHx8fDE3NjQxNDk0MTd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            />
-            <ArtworkCard
-              title="Memory Fragments"
-              medium="Illustration"
-              year="2024"
-              imageUrl="https://images.unsplash.com/photo-1622617760286-e11b543f5ab7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXJyYXRpdmUlMjBnYW1lJTIwcHV6emxlfGVufDF8fHx8MTc2NDE0OTQxNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {homeArtworks.map((art) => (
+              <ArtworkCard
+                key={art.id}
+                title={art.title}
+                medium={art.medium}
+                year={art.year}
+                imageUrl={art.imageUrl}
+              />
+            ))}
           </div>
-
-          {/* Mobile View All Button */}
           <div className="md:hidden text-center mt-8">
             <CustomButton
               variant="secondary"
               onClick={() => navigate('/artwork')}
-              className="flex items-center gap-2 group mx-auto"
-            >
-              View Gallery
+              className="flex items-center gap-2 group mx-auto">View Gallery
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </CustomButton>
           </div>
         </div>
       </section>
 
-      {/* Micro Projects Section - White Background */}
+      {/* Micro Projects */}
       <section className="py-24 px-6 bg-gradient-to-b from-white to-[#f8f9fa]">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#3A6FF7]/10 border border-[#3A6FF7]/20 rounded-full mb-6">
               <Lightbulb className="text-[#3A6FF7]" size={16} />
-              <span className="text-[#0D1018]/80 text-sm">Experiments & Prototypes</span>
+              <span className="text-[#0D1018]/80 text-sm">Experiments &amp; Prototypes</span>
             </div>
-            <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-4">Micro Projects & Ideas</h2>
-            <p className="text-lg text-[#0D1018]/60 max-w-2xl mx-auto">
-              Small experiments, game jam projects, and playful prototypes exploring new mechanics and ideas
-            </p>
+            <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-4">Micro Projects &amp; Ideas</h2>
+            <p className="text-lg text-[#0D1018]/60 max-w-2xl mx-auto">Small experiments, game jam projects, and playful prototypes exploring new mechanicsand ideas</p>
           </div>
 
-          {/* Micro Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <MicroProjectCard
               icon={Layers}
               title="UI Prototypes"
               description="Exploring cozy, warm interface designs with soft animations"
-              color="#3A6FF7"
-            />
+              color="#3A6FF7"/>
             <MicroProjectCard
               icon={Box}
               title="VR Experiments"
               description="Testing immersive interactions in virtual spaces"
-              color="#C5A9FF"
-            />
+              color="#C5A9FF"/>
             <MicroProjectCard
               icon={Zap}
               title="Game Jam Ideas"
               description="48-hour creative challenges and rapid prototyping"
-              color="#FFC7A8"
-            />
+              color="#FFC7A8"/>
             <MicroProjectCard
               icon={Wand2}
               title="Narrative Mockups"
               description="Story beats, dialogue systems, and branching paths"
-              color="#3A6FF7"
-            />
+              color="#3A6FF7"/>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section - Gradient */}
+      {/* Final CTA */}
       <section className="py-24 px-6 bg-gradient-to-br from-[#0D1018] via-[#1a1d29] to-[#0D1018] relative overflow-hidden film-grain">
-        {/* Background effects */}
         <div className="absolute inset-0 gradient-radial-warm opacity-40"></div>
-
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <Sparkles className="text-[#C5A9FF] mx-auto mb-6" size={32} />
           <h2 className="text-4xl md:text-5xl text-white mb-6">Ready to Build a World Together?</h2>
-          <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">If you're seeking a collaborator for a new narrative, game concept, or visual design project, let's connect. I'm always open to discussing games, art, and the next great story.</p>
+          <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+            If you're seeking a collaborator for a new narrative, game concept, or visual design
+            project, let's connect. I'm always open to discussing games, art, and the next great
+            story.
+          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <CustomButton
               variant="primary"
@@ -370,15 +373,15 @@ export function Home() {
               className="group flex items-center gap-2">Get in Touch
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </CustomButton>
-            <CustomButton variant="secondary" onClick={() => navigate('/projects')}>View All Projects</CustomButton>
+            <CustomButton variant="secondary" onClick={() => navigate('/projects')}> View All Projects</CustomButton>
           </div>
         </div>
 
-        {/* Decorative sparkles */}
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#C5A9FF] rounded-full animate-pulse"></div>
         <div
           className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 bg-[#FFC7A8] rounded-full animate-pulse"
-          style={{ animationDelay: '0.5s' }}></div>
+          style={{ animationDelay: '0.5s' }}
+        ></div>
       </section>
     </div>
   );
