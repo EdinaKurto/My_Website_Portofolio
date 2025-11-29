@@ -4,7 +4,6 @@ export function Footer() {
     { icon: Github, href: 'https://github.com/EdinaKurto', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/edina-kurto-70093230b/', label: 'LinkedIn' },
     { icon: Instagram, href: 'https://www.instagram.com/avelloxy/', label: 'Instagram' },
-    { icon: <Itch className="io"></Itch>, href: 'https://avelloxy.itch.io/', label: 'Instagram' },
   ];
   return (
     <footer className="bg-[#0D1018] border-t border-[#C5A9FF]/20 py-12">
