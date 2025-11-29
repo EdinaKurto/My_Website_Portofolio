@@ -225,6 +225,7 @@ export const projects: Project[] = [
 
   {
     id: 4,
+    link: "https://www.youtube.com/watch?v=oYIxYBhlXxc",
     title: "Kenai Animation WIP",
     tagline:
       "A character animation bringing my dog Kenai’s personality to life.",
@@ -270,6 +271,7 @@ export const projects: Project[] = [
 
   {
     id: 5,
+    link: "https://avelloxy.itch.io/you-were-always-coming",
     title: "You Were Always Coming",
     tagline:
       "A quiet, atmospheric narrative unfolding in a forgotten corner of the world.",
@@ -313,6 +315,7 @@ export const projects: Project[] = [
   },
   {
     id: 6,
+    link: "https://avelloxy.itch.io/will-they-stay-together",
     title: "Will they stay together?",
     tagline:
       "A quiet, emotional micro–visual novel about love, mistakes, and second chances.",
@@ -324,7 +327,18 @@ export const projects: Project[] = [
     overview: {
       description:
         "Over the past few weeks, Vincent and his girlfriend Annie have been fighting, as one thing led to another... now they are on the verge of a breakup. Walking into your friends apartment, you find your childhood friend on the floor wrapped up in a blanket while watching nothing but static. Approaching him, you try everything you can to help him understand that maybe nothing is set in stone. Vincent can be very stubborn when it comes to his girlfriend, and he needs a bit of persuading to fix the mistakes in their relationship (which he caused...) Youre the only person that can fix their relationship.. so will they stay together?",
-      role: "2D Designer, voice actor - SpoopiIzumi, tester - TheJayDuck",
+      role: "2D Designer and Programmer",
+            additionalHelp: [
+        {
+          role: "Voice Actor",
+          name: "SpoopiIzumi",
+        },
+        {
+          role: "Tester",
+          name: "TheJayDuck",
+          link: "https://ardarmutcu.com/",
+        },
+      ],
       timeline: "2023 – 2024",
       tools: ["Renpy", "Photoshop", "Python"],
     },
@@ -357,6 +371,7 @@ export const projects: Project[] = [
   },
   {
     id: 7,
+    link: "https://avelloxy.itch.io/the-haunting-of-ducky-holmes",
     title: "The Haunting Of Ducky Holmes",
     tagline: "The incredible duck becomes a detective for a day.",
     shortDescription: "A platformer built in Unity based on a cute duck.",
