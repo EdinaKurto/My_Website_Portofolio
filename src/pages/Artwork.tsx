@@ -1,11 +1,14 @@
-// src/pages/Artwork.tsx
 import { useState } from 'react';
 import { ArtworkCard } from '../components/ArtworkCard';
-import { Sparkles, Palette } from 'lucide-react';
-import { artworks, ArtworkCategory } from '../data/artworks';
+import { Sparkles, Palette, X } from 'lucide-react';
+import { artworks, ArtworkCategory, ArtworkItem } from '../data/artworks';
 
 export function Artwork() {
-  const [selectedCategory, setSelectedCategory] = useState<ArtworkCategory>('All');
+  const [selectedCategory, setSelectedCategory] =
+    useState<ArtworkCategory>('All');
+  const [selectedArtwork, setSelectedArtwork] = useState<ArtworkItem | null>(
+    null
+  );
 
   const categories: ArtworkCategory[] = [
     'All',
@@ -39,10 +42,12 @@ export function Artwork() {
             <span className="text-white/90 text-sm">Visual Art Gallery</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl text-white mb-6">Artwork & Visuals</h1>
+          <h1 className="text-5xl md:text-7xl text-white mb-6">
+            Artwork & Visuals
+          </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            A collection of paintings, digital art, and mixed media pieces exploring memory,
-            culture, and emotion through color and composition
+            A collection of paintings, digital art, and mixed media pieces
+            exploring memory, culture, and emotion through color and composition
           </p>
         </div>
 
@@ -83,6 +88,7 @@ export function Artwork() {
                 medium={artwork.medium}
                 year={artwork.year}
                 imageUrl={artwork.imageUrl}
+                onClick={() => setSelectedArtwork(artwork)}
               />
             ))}
           </div>
@@ -107,21 +113,66 @@ export function Artwork() {
             <span className="text-[#0D1018]/80 text-sm">Artist Statement</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl text-[#0D1018] mb-6">Art as Memory & Emotion</h2>
+          <h2 className="text-3xl md:text-4xl text-[#0D1018] mb-6">
+            Art as Memory & Emotion
+          </h2>
 
           <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">
-            My artwork explores the intersection of memory, culture, and personal narrative.
-            Each piece is a fragment of a story—inspired by my grandmother&apos;s home, the
-            textures of traditional textiles, and the quiet moments that shape who we are.
+            My artwork explores the intersection of memory, culture, and
+            personal narrative. Each piece is a fragment of a story—inspired by
+            my grandmother&apos;s home, the textures of traditional textiles,
+            and the quiet moments that shape who we are.
           </p>
 
           <p className="text-[#0D1018]/60 leading-relaxed">
-            I work across digital painting, mixed media collage, and concept art, blending
-            traditional influences with contemporary techniques. Every brushstroke and color
-            choice carries intention, warmth, and a touch of nostalgia.
+            I work across digital painting, mixed media collage, and concept
+            art, blending traditional influences with contemporary techniques.
+            Every brushstroke and color choice carries intention, warmth, and a
+            touch of nostalgia.
           </p>
         </div>
       </div>
+
+      {/* 🔍 Lightbox / Zoom Modal */}
+      {selectedArtwork && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setSelectedArtwork(null)}
+        >
+          <div
+            className="relative max-w-4xl w-full max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              type="button"
+              onClick={() => setSelectedArtwork(null)}
+              className="absolute -top-3 -right-3 z-10 rounded-full bg-black/80 p-2 text-white hover:bg-black transition"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Big image */}
+            <img
+              src={selectedArtwork.imageUrl}
+              alt={selectedArtwork.title}
+              className="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
+            />
+
+            {/* Caption */}
+            <div className="mt-4 flex justify-between items-start gap-4 text-white/90 text-sm md:text-base">
+              <div>
+                <h3 className="text-lg md:text-xl font-semibold">
+                  {selectedArtwork.title}
+                </h3>
+                <p className="text-white/70">
+                  {selectedArtwork.medium} • {selectedArtwork.year}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
