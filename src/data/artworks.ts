@@ -1,7 +1,7 @@
 import Img1 from '../photos/artworks/Room_Bathroom.png';
 import Img2 from '../photos/artworks/New_Kitchen_2.png';
 import Img3 from '../photos/artworks/Room_Game.png';
-import Img4 from '../photos/artworks/Game_Room.png';
+import Img4 from '../photos/artworks/Game_room.png';
 import Img5 from '../photos/artworks/Pfp_Raff.png';
 import Img6 from '../photos/artworks/Raford Model Final.png';
 import Img7 from '../photos/artworks/Wizard.png';
