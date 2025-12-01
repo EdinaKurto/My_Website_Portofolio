@@ -30,7 +30,7 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="text-center mt-8 text-white/40 text-sm">Crafting cozy interactive worlds & visual stories </div>
+        <div className="text-center mt-8 text-white/40 text-sm">Crafting cozy interactive games & visual stories </div>
       </div>
     </footer>
   );

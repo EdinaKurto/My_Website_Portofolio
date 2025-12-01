@@ -92,13 +92,11 @@ export function ProjectSingle() {
                     glow-blue hover:glow-blue-strong
                     w-full flex items-center justify-center gap-2 group
                     block
-                  "
-                >
-                  View Game
+                  ">
+                  View Project
                   <ArrowRight
                     size={20}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
+                    className="group-hover:translate-x-1 transition-transform"/>
                 </a>
               )}
 

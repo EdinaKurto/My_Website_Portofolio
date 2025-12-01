@@ -318,54 +318,14 @@ export function Home() {
         </div>
       </section>
 
-      {/* Micro Projects */}
-      <section className="py-24 px-6 bg-gradient-to-b from-white to-[#f8f9fa]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#3A6FF7]/10 border border-[#3A6FF7]/20 rounded-full mb-6">
-              <Lightbulb className="text-[#3A6FF7]" size={16} />
-              <span className="text-[#0D1018]/80 text-sm">Experiments &amp; Prototypes</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-4">Micro Projects &amp; Ideas</h2>
-            <p className="text-lg text-[#0D1018]/60 max-w-2xl mx-auto">Small experiments, game jam projects, and playful prototypes exploring new mechanicsand ideas</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <MicroProjectCard
-              icon={Layers}
-              title="UI Prototypes"
-              description="Exploring cozy, warm interface designs with soft animations"
-              color="#3A6FF7"/>
-            <MicroProjectCard
-              icon={Box}
-              title="VR Experiments"
-              description="Testing immersive interactions in virtual spaces"
-              color="#C5A9FF"/>
-            <MicroProjectCard
-              icon={Zap}
-              title="Game Jam Ideas"
-              description="48-hour creative challenges and rapid prototyping"
-              color="#FFC7A8"/>
-            <MicroProjectCard
-              icon={Wand2}
-              title="Narrative Mockups"
-              description="Story beats, dialogue systems, and branching paths"
-              color="#3A6FF7"/>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="py-24 px-6 bg-gradient-to-br from-[#0D1018] via-[#1a1d29] to-[#0D1018] relative overflow-hidden film-grain">
         <div className="absolute inset-0 gradient-radial-warm opacity-40"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <Sparkles className="text-[#C5A9FF] mx-auto mb-6" size={32} />
-          <h2 className="text-4xl md:text-5xl text-white mb-6">Ready to Build a World Together?</h2>
+          <h2 className="text-4xl md:text-5xl text-white mb-6">Ready to Build Something Together?</h2>
           <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-            If you're seeking a collaborator for a new narrative, game concept, or visual design
-            project, let's connect. I'm always open to discussing games, art, and the next great
-            story.
-          </p>
+            If you're seeking a collaborator for a new narrative, game concept, or visual designproject, let's connect.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <CustomButton
               variant="primary"
