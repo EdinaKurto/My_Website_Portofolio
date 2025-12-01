@@ -25,7 +25,6 @@ export function Artwork() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Dark Gradient */}
       <div className="relative py-32 px-6 bg-gradient-to-br from-[#0D1018] via-[#1a1d29] to-[#0D1018] overflow-hidden film-grain">
         {/* Background effects */}
         <div className="absolute inset-0 gradient-radial-warm opacity-50"></div>
@@ -46,12 +45,10 @@ export function Artwork() {
             Artwork & Visuals
           </h1>
           <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            A collection of paintings, digital art, and mixed media pieces
-            exploring memory, culture, and emotion through color and composition
+            A collection of paintings, mixed media, digital and concept art pieces I made over the years
           </p>
         </div>
 
-        {/* Decorative elements */}
         <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-[#C5A9FF] rounded-full animate-pulse"></div>
         <div
           className="absolute bottom-1/4 right-1/3 w-1.5 h-1.5 bg-[#FFC7A8] rounded-full animate-pulse"
@@ -59,7 +56,6 @@ export function Artwork() {
         ></div>
       </div>
 
-      {/* Gallery Section - White Background */}
       <div className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Category Filters */}
@@ -105,42 +101,14 @@ export function Artwork() {
         </div>
       </div>
 
-      {/* Statement Section - Soft Background */}
-      <div className="py-24 px-6 bg-gradient-to-b from-white to-[#f8f9fa]">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFC7A8]/20 border border-[#FFC7A8]/30 rounded-full mb-6">
-            <Sparkles className="text-[#FFC7A8]" size={16} />
-            <span className="text-[#0D1018]/80 text-sm">Artist Statement</span>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl text-[#0D1018] mb-6">
-            Art as Memory & Emotion
-          </h2>
-
-          <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">
-            My artwork explores the intersection of memory, culture, and
-            personal narrative. Each piece is a fragment of a story—inspired by
-            my grandmother&apos;s home, the textures of traditional textiles,
-            and the quiet moments that shape who we are.
-          </p>
-
-          <p className="text-[#0D1018]/60 leading-relaxed">
-            I work across digital painting, mixed media collage, and concept
-            art, blending traditional influences with contemporary techniques.
-            Every brushstroke and color choice carries intention, warmth, and a
-            touch of nostalgia.
-          </p>
-        </div>
-      </div>
-
-      {/* 🔍 Lightbox / Zoom Modal */}
+      {/* Lightbox / Zoom Modal */}
       {selectedArtwork && (
         <div
           className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setSelectedArtwork(null)}
         >
           <div
-            className="relative max-w-4xl w-full max-h-[90vh]"
+            className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
@@ -152,15 +120,22 @@ export function Artwork() {
               <X className="w-4 h-4" />
             </button>
 
-            {/* Big image */}
+            {/* 🔥 STRICT HEIGHT-LIMITED IMAGE */}
             <img
               src={selectedArtwork.imageUrl}
               alt={selectedArtwork.title}
-              className="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
+              className="rounded-2xl shadow-2xl object-contain"
+              style={{
+                maxHeight: '70vh', // clamp height to 70% of viewport
+                maxWidth: '90vw',
+                width: 'auto',
+                height: 'auto',
+                display: 'block',
+              }}
             />
 
             {/* Caption */}
-            <div className="mt-4 flex justify-between items-start gap-4 text-white/90 text-sm md:text-base">
+            <div className="mt-4 flex justify-between items-start gap-4 text-white/90 text-sm md:text-base w-full max-w-3xl">
               <div>
                 <h3 className="text-lg md:text-xl font-semibold">
                   {selectedArtwork.title}
