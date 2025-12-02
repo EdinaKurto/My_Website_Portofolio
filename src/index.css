@@ -1,6 +1,75 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap");
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap);
 /* virtual-fs:file:///styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer utilities {
+  .dreamwave-title {
+    color: #e5ecff;
+    text-shadow:
+      0 0 22px rgba(58, 111, 247, 0.9),
+      0 0 40px rgba(60, 105, 255, 0.75),
+      0 0 70px rgba(6, 8, 26, 0.95);
+    letter-spacing: 0.04em;
+    animation: dreamwaveFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes dreamwaveFloat {
+    0% { transform: translateY(0); filter: saturate(1); }
+    50% { transform: translateY(4px); filter: saturate(1.1); }
+    100% { transform: translateY(0); filter: saturate(1); }
+  }
+}
+
+@layer components {
+  .water-hero {
+    --x: 50%;
+    --y: 50%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle parallax video shift */
+  .water-hero-video {
+    transform: translate3d(
+      calc((var(--x) - 50%) * 0.03),
+      calc((var(--y) - 50%) * 0.03),
+      0
+    );
+    transition: transform 0.2s ease-out;
+  }
+
+  /* soft interactive highlight */
+  .water-hero-highlight {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+
+    background:
+      radial-gradient(
+        circle at var(--x) var(--y),
+        rgba(255, 255, 255, 0.10),   /* ⬅️ reduced from 0.20 */
+        transparent 55%
+      );
+
+    mix-blend-mode: screen;
+
+    /* makes light movement smoother & more natural */
+    filter: blur(25px);              /* ⬅️ NEW soft blur */
+    opacity: 0.18;                   /* ⬅️ softer presence */
+
+    transition:
+      background-position 0.15s ease-out,
+      opacity 0.2s ease-out;
+  }
+}
+
+
+
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     *, :before, :after, ::backdrop {
@@ -1741,11 +1810,11 @@
   }
 
   .text-\[\#C5A9FF\] {
-    color: #c5a9ff;
+    color: #7b79da;
   }
 
   .text-\[\#C5A9FF\]\/80 {
-    color: oklab(79.0764% .0586434 -.107882 / .8);
+    color: oklab(100% 0 -0.00011 / 0.8);
   }
 
   .text-\[\#FFC7A8\] {
@@ -2356,7 +2425,7 @@
 
   @media (width >= 48rem) {
     .md\:text-6xl {
-      font-size: var(--text-6xl);
+      font-size: 6rem;   
       line-height: var(--tw-leading, var(--text-6xl--line-height));
     }
   }

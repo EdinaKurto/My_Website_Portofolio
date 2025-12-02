@@ -1,4 +1,4 @@
-// src/pages/Home.tsx
+/// src/pages/Home.tsx
 import { useNavigate } from 'react-router-dom';
 import { CustomButton } from '../components/CustomButton';
 import { FeaturedWorkCard } from '../components/FeaturedWorkCard';
@@ -7,6 +7,7 @@ import { ToolBadge } from '../components/ToolBadge';
 import { ArtworkCard } from '../components/ArtworkCard';
 import { MicroProjectCard } from '../components/MicroProjectCard';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import Spline from '@splinetool/react-spline';
 import {
   ArrowRight,
   Sparkles,
@@ -16,10 +17,6 @@ import {
   Pen,
   Monitor,
   Wand2,
-  Layers,
-  Lightbulb,
-  Zap,
-  Box,
 } from 'lucide-react';
 import { projects } from '../data/projects';
 import { artworks } from '../data/artworks';
@@ -45,93 +42,34 @@ export function Home() {
       };
     })
     .filter(Boolean) as {
-    id: number;
-    subtitle: string;
-    title: string;
-    description: string;
-    imageUrl: string;
-  }[];
+      id: number;
+      subtitle: string;
+      title: string;
+      description: string;
+      imageUrl: string;
+    }[];
 
   // Use artwork IDs 1, 2, 3 for the home carousel
   const homeArtworks = artworks.filter((a) => [1, 2, 3].includes(a.id));
 
   return (
     <div className="relative">
-      {/* Hero */}
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden film-grain bg-gradient-to-br from-[#0D1018] via-[#1a1d29] to-[#0D1018]">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] gradient-radial-warm opacity-60"></div>
+      {/* HERO – Spline background, buttons + scroll pinned near bottom */}
+      {/* HERO SECTION */}
+<section className="relative min-h-screen w-full overflow-hidden film-grain bg-[#050816] flex flex-col justify-end">
 
-        {/* Animated Circles */}
-        <div className="absolute top-20 right-20 w-64 h-64 rounded-full border border-[#C5A9FF]/20 animate-pulse"></div>
-        <div
-          className="absolute bottom-20 left-20 w-96 h-96 rounded-full border border-[#FFC7A8]/10 animate-pulse"
-          style={{ animationDelay: '1s' }}
-        ></div>
+  {/* Spline background */}
+  <div className="absolute inset-0 -z-10">
+    <Spline scene="https://prod.spline.design/Ai9-rltr9tobPRZj/scene.splinecode" />
+    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#050816]/95" />
+  </div>
 
-        {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#C5A9FF] rounded-full animate-pulse"></div>
-          <div
-            className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-[#FFC7A8] rounded-full animate-pulse"
-            style={{ animationDelay: '0.5s' }}
-          ></div>
-          <div
-            className="absolute bottom-1/4 left-1/3 w-2.5 h-2.5 bg-[#3A6FF7] rounded-full animate-pulse"
-            style={{ animationDelay: '1s' }}
-          ></div>
-          <div
-            className="absolute top-2/3 right-1/4 w-1 h-1 bg-[#C5A9FF] rounded-full animate-pulse"
-            style={{ animationDelay: '1.5s' }}
-          ></div>
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="mb-8 text-[#C5A9FF]/80 text-sm tracking-wider">
-            Game Development • Interactive Art • Visual Storytelling • UX/UI Experiments
-          </div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/30 rounded-full mb-8 glow-warm">
-            <Sparkles className="text-[#C5A9FF]" size={16} />
-            <span className="text-white/90 text-sm">Indie Game Developer</span>
-          </div>
-          <h1 className="text-6xl md:text-8xl text-white mb-6 tracking-tight">Avellox Studio</h1>
-          <p className="text-2xl md:text-3xl text-white/80 mb-12 max-w-3xl mx-auto">
-            Crafting Interactive Worlds &amp; Visual Stories
-          </p>
-
-          <p className="text-lg text-white/60 mb-12 max-w-2xl mx-auto">
-            I am a creator focused on digital experiences, from character driven narratives
-            and games to expressive visual art. My goal is to blend design withprogramming.</p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <CustomButton
-              variant="primary"
-              onClick={() => navigate('/projects')}
-              className="group flex items-center gap-2"
-            >
-              View Projects
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </CustomButton>
-            <CustomButton variant="secondary" onClick={() => navigate('/contact')}>
-              Get in Touch
-            </CustomButton>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-white/40 text-sm">Scroll to explore</span>
-            <div className="w-0.5 h-12 bg-gradient-to-b from-[#C5A9FF] to-transparent"></div>
-          </div>
-        </div>
-
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C5A9FF]/50 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FFC7A8]/50 to-transparent"></div>
-      </div>
+</section>
 
       {/* Featured Work Section */}
       <section className="py-24 px-6 bg-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#C5A9FF]/5 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#3A6FF7]/5 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#C5A9FF]/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#3A6FF7]/5 to-transparent rounded-full blur-3xl" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
@@ -139,9 +77,12 @@ export function Home() {
               <Sparkles className="text-[#3A6FF7]" size={16} />
               <span className="text-[#0D1018]/80 text-sm">Featured Work</span>
             </div>
-            <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-4">Current Chapters &amp; Prototypes</h2>
+            <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-4">
+              Current Chapters &amp; Prototypes
+            </h2>
             <p className="text-lg text-[#0D1018]/60 max-w-2xl mx-auto">
-              A glimpse into recent projects that blend storytelling, design, and interaction
+              A glimpse into recent projects that blend storytelling, design, and
+              interaction
             </p>
           </div>
 
@@ -173,12 +114,20 @@ export function Home() {
                 <Wand2 className="text-[#C5A9FF]" size={16} />
                 <span className="text-[#0D1018]/80 text-sm">What I Do</span>
               </div>
-              <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-6">Multi-Disciplinary Artist</h2>
+              <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-6">
+                Multi-Disciplinary Artist
+              </h2>
               <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">
-                I'm all about blending game creation, storytelling that pulls you in, and visuals that feel like art. My goal is to make games that feel more like a cherished memory than just a program, where every time you play, it feels special and hits home.
+                I'm all about blending game creation, storytelling that pulls you in, and
+                visuals that feel like art. My goal is to make games that feel more like a
+                cherished memory than just a program, where every time you play, it feels
+                special and hits home.
               </p>
               <p className="text-[#0D1018]/60 leading-relaxed">
-                Whether I'm building worlds in Unity, designing user interfaces that are smooth and fun to use, or drawing pictures that bring up feelings of home and the past, I approach everything with a real sense of wonder and a little bit of enchantment.
+                Whether I'm building worlds in Unity, designing user interfaces that are
+                smooth and fun to use, or drawing pictures that bring up feelings of home
+                and the past, I approach everything with a real sense of wonder and a
+                little bit of enchantment.
               </p>
             </div>
 
@@ -214,7 +163,7 @@ export function Home() {
 
       {/* Behind the Studio */}
       <section className="py-24 px-6 bg-[#f8f9fa] relative overflow-hidden">
-        <div className="absolute top-1/2 right-0 w-64 h-64 bg-[#FFC7A8]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 right-0 w-64 h-64 bg-[#FFC7A8]/10 rounded-full blur-3xl" />
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -237,7 +186,8 @@ export function Home() {
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1742440710226-450e3b85c100?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                   alt="Creative workspace"
-                  className="w-full h-48 object-cover"/>
+                  className="w-full h-48 object-cover"
+                />
               </div>
             </div>
 
@@ -247,26 +197,38 @@ export function Home() {
                 <span className="text-[#0D1018]/80 text-sm">About Me</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-6">Behind the Developer</h2>
+              <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-6">
+                Behind the Developer
+              </h2>
               <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">
-                Avellox is more than just a studio; it's where my creative spirit really lives. It's a place where the charm of cozy narratives blends seamlessly with the structure of game design. I create worlds you can step into, worlds that feel familiar, rich with culture, and full of real feelings.
+                Avellox is more than just a studio; it's where my creative spirit really
+                lives. It's a place where the charm of cozy narratives blends seamlessly
+                with the structure of game design. I create worlds you can step into,
+                worlds that feel familiar, rich with culture, and full of real feelings.
               </p>
               <p className="text-[#0D1018]/60 leading-relaxed mb-6">
-                I get my ideas from my own memories, like the peaceful feeling of being at home or the mysterious, story-filled atmosphere of places such as Caedwig Forest. Everything I make here is crafted with a sense of warmth and a touch of magic.
+                I get my ideas from my own memories, like the peaceful feeling of being at
+                home or the mysterious, story-filled atmosphere of places such as Caedwig
+                Forest. Everything I make here is crafted with a sense of warmth and a
+                touch of magic.
               </p>
               <CustomButton
                 variant="primary"
                 onClick={() => navigate('/about')}
-                className="group flex items-center gap-2">
+                className="group flex items-center gap-2"
+              >
                 Learn More About Me
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </CustomButton>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Artwork Carousel – now using real artworks 1–3 */}
+      {/* Artwork Carousel */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12">
@@ -275,14 +237,23 @@ export function Home() {
                 <Palette className="text-[#C5A9FF]" size={16} />
                 <span className="text-[#0D1018]/80 text-sm">Visual Art</span>
               </div>
-              <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-2">Latest Art &amp; Experiments</h2>
-              <p className="text-[#0D1018]/60">Mixed media, digital paintings, and visual storytelling </p>
+              <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-2">
+                Latest Art &amp; Experiments
+              </h2>
+              <p className="text-[#0D1018]/60">
+                Mixed media, digital paintings, and visual storytelling
+              </p>
             </div>
             <CustomButton
               variant="secondary"
               onClick={() => navigate('/artwork')}
-              className="hidden md:flex items-center gap-2 group">View Gallery
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              className="hidden md:flex items-center gap-2 group"
+            >
+              View Gallery
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </CustomButton>
           </div>
 
@@ -301,8 +272,13 @@ export function Home() {
             <CustomButton
               variant="secondary"
               onClick={() => navigate('/artwork')}
-              className="flex items-center gap-2 group mx-auto">View Gallery
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              className="flex items-center gap-2 group mx-auto"
+            >
+              View Gallery
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </CustomButton>
           </div>
         </div>
@@ -310,28 +286,39 @@ export function Home() {
 
       {/* Final CTA */}
       <section className="py-24 px-6 bg-gradient-to-br from-[#0D1018] via-[#1a1d29] to-[#0D1018] relative overflow-hidden film-grain">
-        <div className="absolute inset-0 gradient-radial-warm opacity-40"></div>
+        <div className="absolute inset-0 gradient-radial-warm opacity-40" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <Sparkles className="text-[#C5A9FF] mx-auto mb-6" size={32} />
-          <h2 className="text-4xl md:text-5xl text-white mb-6">Ready to Build Something Together?</h2>
+          <h2 className="text-4xl md:text-5xl text-white mb-6">
+            Ready to Build Something Together?
+          </h2>
           <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-            If you're seeking a collaborator for a new narrative, game concept, or visual designproject, let's connect.</p>
+            If you're seeking a collaborator for a new narrative, game concept, or visual
+            design project, let's connect.
+          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <CustomButton
               variant="primary"
               onClick={() => navigate('/contact')}
-              className="group flex items-center gap-2">Get in Touch
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              className="group flex items-center gap-2"
+            >
+              Get in Touch
+              <ArrowRight
+                size={20}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </CustomButton>
-            <CustomButton variant="secondary" onClick={() => navigate('/projects')}> View All Projects</CustomButton>
+            <CustomButton variant="secondary" onClick={() => navigate('/projects')}>
+              View All Projects
+            </CustomButton>
           </div>
         </div>
 
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#C5A9FF] rounded-full animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#C5A9FF] rounded-full animate-pulse" />
         <div
           className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 bg-[#FFC7A8] rounded-full animate-pulse"
           style={{ animationDelay: '0.5s' }}
-        ></div>
+        />
       </section>
     </div>
   );

@@ -1,15 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Avellox</title>
+  </head>
+  <body>
+    <div id="root"></div>
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Avellox</title>
-    </head>
+    <!-- Your React entry -->
+    <script type="module" src="/src/main.tsx"></script>
 
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
-  
+    <!-- Unicorn Studio loader (for the water hero) -->
+    <script type="text/javascript">
+      (function () {
+        if (!window.UnicornStudio) {
+          window.UnicornStudio = { isInitialized: false };
+          var script = document.createElement('script');
+          script.src =
+            'https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.36/dist/unicornStudio.umd.js';
+          script.onload = function () {
+            if (!window.UnicornStudio.isInitialized) {
+              UnicornStudio.init();
+              window.UnicornStudio.isInitialized = true;
+            }
+          };
+          (document.head || document.body).appendChild(script);
+        }
+      })();
+    </script>
+  </body>
+</html>
