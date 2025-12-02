@@ -99,10 +99,8 @@ export function Home() {
           </p>
 
           <p className="text-lg text-white/60 mb-12 max-w-2xl mx-auto">
-            I am a creator focused on handmade digital experiences, from character driven narratives
-            and heart-first games to expressive visual art. My goal is to blend design with
-            programming.
-          </p>
+            I am a creator focused on digital experiences, from character driven narratives
+            and games to expressive visual art. My goal is to blend design withprogramming.</p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -177,14 +175,10 @@ export function Home() {
               </div>
               <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-6">Multi-Disciplinary Artist</h2>
               <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">
-                My practice is a delicate alchemy of game development, evocative narrative design,
-                and visual poetry. I craft experiences that feel less like software and more like a
-                warm memory, where every interaction is deeply personal and meaningful.
+                I'm all about blending game creation, storytelling that pulls you in, and visuals that feel like art. My goal is to make games that feel more like a cherished memory than just a program, where every time you play, it feels special and hits home.
               </p>
               <p className="text-[#0D1018]/60 leading-relaxed">
-                From sculpting interactive landscapes in Unity to designing seamless, playful UI, or
-                creating illustrations steeped in culture and nostalgia—I infuse every step of the
-                process with genuine curiosity and a touch of magic.
+                Whether I'm building worlds in Unity, designing user interfaces that are smooth and fun to use, or drawing pictures that bring up feelings of home and the past, I approach everything with a real sense of wonder and a little bit of enchantment.
               </p>
             </div>
 
@@ -255,14 +249,10 @@ export function Home() {
 
               <h2 className="text-4xl md:text-5xl text-[#0D1018] mb-6">Behind the Developer</h2>
               <p className="text-lg text-[#0D1018]/70 leading-relaxed mb-6">
-                Avellox is more than a studio, it's the home of my creative ethos, where the magic
-                of cozy stories meets the logic of game design. I build interactive worlds that echo
-                with a sense of nostalgia, deep culture, and genuine emotion.
+                Avellox is more than just a studio; it's where my creative spirit really lives. It's a place where the charm of cozy narratives blends seamlessly with the structure of game design. I create worlds you can step into, worlds that feel familiar, rich with culture, and full of real feelings.
               </p>
               <p className="text-[#0D1018]/60 leading-relaxed mb-6">
-                My inspiration is drawn from personal memory, whether it's the quiet comfort of a
-                familiar home or the misty, narrative potential of places like the Caedwig Forest.
-                This is where every handcrafted experience is born from warmth and wonder.
+                I get my ideas from my own memories, like the peaceful feeling of being at home or the mysterious, story-filled atmosphere of places such as Caedwig Forest. Everything I make here is crafted with a sense of warmth and a touch of magic.
               </p>
               <CustomButton
                 variant="primary"
