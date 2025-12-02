@@ -118,7 +118,7 @@ export const projects: Project[] = [
     ],
     process: {
       description:
-        "The development of Her Hands Remember has been a slow, intimate transformation. The project began as a simple greybox—bare walls, placeholder props, and empty rooms meant only to test flow and interaction. Early versions of the house were quiet and generic, more of a technical space than a lived-in home. But as the game grew, I started layering in the textures of my own memories: Bosnian wooden interiors, family photographs, old rugs, carved furniture, flowers from the garden, and the warm clutter of a real grandmother’s house.",
+        "Her Hands Remember has come to life through a gradual, personal evolution. It started out as just a basic outline—just walls, temporary objects, and empty spaces to see how players would move around and interact with things. At first, the house felt sort of plain and generic, more like a testing ground than a place someone actually lived in. But as the game developed, I began adding details from my own childhood memories: the look of wooden interiors from Bosnia, pictures of my family, worn-out rugs, hand-carved furniture, flowers from the yard, and all the cozy messiness you'd find in a real grandmother's home.",
       images: [past1HerHandsRemember, past2HerHandsRemember],
     },
   },
@@ -236,7 +236,7 @@ export const projects: Project[] = [
     tags: ["Figma", "UI Design", "Components"],
     overview: {
       description:
-        "This project explores Kenai as an animated character — capturing his playful, loyal, slightly dramatic personality through movement, squash-and-stretch, and expressive timing. The animation focuses on emotional readability: the tilt of the head, the wag of the tail, the shift in weight before a pounce. Everything is designed to feel alive and familiar, like a real dog you already know.",
+        "This project explores Kenai as an animated character, capturing his playful, loyal, slightly dramatic personality through movement, squash-and-stretch, and expressive timing. The animation focuses on emotional readability: the tilt of the head, the wag of the tail, the shift in weight before a pounce. Everything is designed to feel alive and familiar, like a real dog you already know.",
       role: "2D Animation Artist",
       timeline: "2024",
       tools: ["Photoshop", "Krita", "Adobe Animate"],
@@ -282,7 +282,7 @@ export const projects: Project[] = [
     tags: ["Blender", "3D Modeling", "Unity"],
     overview: {
       description:
-        "At the edge of nowhere, where the world forgets its name, a single tent waits — silent, still, inevitable. Inside, the air is thick with time. Candles flicker. Velvet breathes secrets. And she is there. The Fortune Teller. She doesn’t ask who you are. She already knows. She sees it in the way you hesitate before sitting. Hears it in the breath you didn’t realize you were holding. Reads it in the way your fingers tremble — not from cold, but memory. You say nothing. She deals three cards.Each one is a mirror. A shard of your past. A wound you buried. A choice you once denied. And now, it returns — not to haunt, but to ask: What will you do with what you carry? You will choose. And she will listen — not with pity, but with purpose. There is no right answer. Only honesty. Only consequence. You may only visit her once. But in truth, you’ve always been walking toward that tent. The question was never if.It was always when.",
+        "At the edge of nowhere, where the world forgets its name, a single tent waits that are silent, still, inevitable. Inside, the air is thick with time. Candles flicker. Velvet breathes secrets. And she is there. The Fortune Teller. She doesn’t ask who you are. She already knows. She sees it in the way you hesitate before sitting. Hears it in the breath you didn’t realize you were holding. Reads it in the way your fingers tremble — not from cold, but memory. You say nothing. She deals three cards.Each one is a mirror. A shard of your past. A wound you buried. A choice you once denied. And now, it returns — not to haunt, but to ask: What will you do with what you carry? You will choose. And she will listen — not with pity, but with purpose. There is no right answer. Only honesty. Only consequence. You may only visit her once. But in truth, you’ve always been walking toward that tent. The question was never if.It was always when.",
       role: "Designer and Programmer",
       timeline: "2025",
       tools: ["Renpy", "Krita", "Python", "Photoshop"],
