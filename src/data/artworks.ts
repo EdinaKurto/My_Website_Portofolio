@@ -101,7 +101,7 @@ export const artworks: ArtworkItem[] = [
   },
   {
     id: 9,
-    title: 'Narrative Game – Main Menu Concept',
+    title: 'Narrative Game – Main Menu Concept https://www.instagram.com/necastiva/?utm_source=ig_web_button_share_sheet',
     medium: 'Digital UI & Key Art',
     year: '2024',
     category: 'Illustration',
@@ -118,7 +118,7 @@ export const artworks: ArtworkItem[] = [
   {
     id: 10,
     title: 'Julia – Character Concept Sheet',
-    medium: 'Character Design & Turnaround',
+    medium: 'Character Design & Turnaround https://www.instagram.com/necastiva/?utm_source=ig_web_button_share_sheet',
     year: '2024',
     category: 'Concept Art',
     imageUrl: Img10,
@@ -133,7 +133,7 @@ export const artworks: ArtworkItem[] = [
   },
   {
     id: 11,
-    title: 'Sunflower – Game Concept Art',
+    title: 'Sunflower – Game Concept Art https://www.instagram.com/necastiva/?utm_source=ig_web_button_share_sheet',
     medium: 'Digital Painting',
     year: '2024',
     category: 'Concept Art',
