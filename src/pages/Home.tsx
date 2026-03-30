@@ -7,6 +7,7 @@ import { ToolBadge } from '../components/ToolBadge';
 import { ArtworkCard } from '../components/ArtworkCard';
 import { MicroProjectCard } from '../components/MicroProjectCard';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
+import heroImage from '../photos/Hero_Page.png';
 
 import {
   ArrowRight,
@@ -60,10 +61,10 @@ export function Home() {
   {/* Background Image */}
   <div className="absolute inset-0">
     <img
-      src="src/photos/Hero_Page.png"
-      alt="Hero Background"
-      className="w-full h-full object-cover"
-    />
+  src={heroImage}
+  alt="Hero Background"
+  className="w-full h-full object-cover"
+/>
   </div>
 
   {/* Dark + theme overlay */}
