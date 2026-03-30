@@ -7,7 +7,7 @@ import { ToolBadge } from '../components/ToolBadge';
 import { ArtworkCard } from '../components/ArtworkCard';
 import { MicroProjectCard } from '../components/MicroProjectCard';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import Spline from '@splinetool/react-spline';
+
 import {
   ArrowRight,
   Sparkles,
@@ -54,18 +54,34 @@ export function Home() {
 
   return (
     <div className="relative">
-      {/* HERO – Spline background, buttons + scroll pinned near bottom */}
-      {/* HERO SECTION */}
-<section className="relative min-h-screen w-full overflow-hidden film-grain bg-[#050816] flex flex-col justify-end">
+{/* HERO SECTION */}
+<section className="relative min-h-screen w-full overflow-hidden bg-[#050816]">
 
-  {/* Spline background */}
-  <div className="absolute inset-0 -z-10">
-    <Spline scene="https://prod.spline.design/Ai9-rltr9tobPRZj/scene.splinecode" />
-    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#050816]/95" />
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <img
+      src="src/photos/Hero_Page.png"
+      alt="Hero Background"
+      className="w-full h-full object-cover"
+    />
   </div>
 
-</section>
+  {/* Dark + theme overlay */}
+  <div className="absolute inset-0 bg-black/45 z-10" />
+  <div className="absolute inset-0 bg-gradient-to-b from-[#050816]/70 via-[#0b1020]/40 to-[#050816]/80 z-10" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.12),transparent_55%)] z-10" />
 
+  {/* Content */}
+  <div className="relative z-20 flex min-h-screen flex-col items-center justify-center px-6 text-center">
+    <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight drop-shadow-[0_4px_30px_rgba(0,0,0,0.6)]">
+      Avellox Studio
+    </h1>
+
+    <p className="mt-6 max-w-3xl text-white/90 text-lg md:text-xl leading-relaxed">
+      Narrative worlds, visual storytelling, and digital experiences crafted with emotion.
+    </p>
+  </div>
+</section>
       {/* Featured Work Section */}
       <section className="py-24 px-6 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#C5A9FF]/5 to-transparent rounded-full blur-3xl" />
@@ -81,8 +97,7 @@ export function Home() {
               Current Chapters &amp; Prototypes
             </h2>
             <p className="text-lg text-[#0D1018]/60 max-w-2xl mx-auto">
-              A glimpse into recent projects that blend storytelling, design, and
-              interaction
+              A glimpse into recent projects that I have been developing that blended storytelling and design
             </p>
           </div>
 
