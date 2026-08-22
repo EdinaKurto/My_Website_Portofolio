@@ -1,19 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navigation } from '../components/Navigation';
-import { Footer } from '../components/Footer';
-import { Home } from '../pages/Home';
-import { Projects } from '../pages/Projects';
-import { ProjectSingle } from '../pages/ProjectSingle';
-import { Experience } from '../pages/Experience';
-import { About } from '../pages/About';
-import { Contact } from '../pages/Contact';
-import { Artwork } from '../pages/Artwork';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import { Navigation } from "../components/Navigation";
+import { Footer } from "../components/Footer";
+
+import { Home } from "../pages/Home";
+import { Projects } from "../pages/Projects";
+import { ProjectSingle } from "../pages/ProjectSingle";
+import { Artwork } from "../pages/Artwork";
+import { About } from "../pages/About";
+import { Experience } from "../pages/Experience";
+import { Contact } from "../pages/Contact";
 
 export default function App() {
   return (
     <Router>
       <div className="site-root">
         <Navigation />
+
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -25,6 +28,7 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
+
         <Footer />
       </div>
     </Router>
