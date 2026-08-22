@@ -1,49 +1,52 @@
 import { useState } from 'react';
 import { ProjectCard } from '../components/ProjectCard';
-import { Sparkles } from 'lucide-react';
 import { projects, ProjectCategory } from '../data/projects';
+
+function VillageSketch() {
+  return (
+    <svg className="village-sketch" viewBox="0 0 520 120" aria-hidden="true">
+      <path d="M8 106 72 55l42 29 55-62 59 67 36-35 54 58 43-47 89 41" />
+      <path d="M72 106h390" />
+      <path d="M270 106V79l22-17 22 17v27M282 106V87h13v19" />
+      <path d="M351 106V82l18-14 19 14v24M360 106V90h11v16" />
+      <path d="M221 106V82m-10 10 10-21 10 21M402 106V78m-12 14 12-25 12 25" />
+    </svg>
+  );
+}
 
 export function Projects() {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
   const categories: ProjectCategory[] = ['All', 'Games', 'UI/UX', 'Assets', 'Animations'];
 
-  const filteredProjects =
-    selectedCategory === 'All'
-      ? projects
-      : projects.filter((project) => project.category === selectedCategory);
+  const filteredProjects = selectedCategory === 'All'
+    ? projects
+    : projects.filter((project) => project.category === selectedCategory);
 
   return (
-    <div className="min-h-screen py-24 px-6 film-grain">
-      <div className="absolute inset-0 gradient-radial-warm opacity-50"></div>
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/30 rounded-full mb-6">
-            <Sparkles className="text-[#C5A9FF]" size={16} />
-            <span className="text-white/90 text-sm">Developed with love</span>
-          </div>
-          <h1 className="text-5xl md:text-6xl text-white mb-4">My Projects</h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">A collection of cozy games, designs, and assets</p>
+    <div className="paper-page inner-page">
+      <section className="page-intro page-width projects-intro">
+        <div>
+          <span className="eyebrow">Portfolio</span>
+          <h1>Projects</h1>
+          <p className="handwritten">Games, prototypes and interactive things that became bigger than the first scribble.</p>
         </div>
+        <VillageSketch />
+      </section>
 
-        {/* Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+      <section className="page-width projects-content">
+        <div className="filter-row" aria-label="Project filters">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full transition-all duration-300 ${
-                selectedCategory === category
-                  ? 'bg-gradient-to-r from-[#3A6FF7] to-[#C5A9FF] text-white glow-warm shadow-lg'
-                  : 'bg-[#1a1d29]/60 text-white/70 border border-[#3A6FF7]/20 hover:border-[#C5A9FF]/50 hover:text-white hover:bg-[#1a1d29]'
-              }`}>
+              className={selectedCategory === category ? 'active' : ''}
+            >
               {category}
             </button>
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="project-grid">
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -51,14 +54,20 @@ export function Projects() {
               title={project.title}
               description={project.shortDescription}
               imageUrl={project.coverImage}
-              category={project.category}/>
+              category={project.category}
+              tags={project.tags}
+            />
           ))}
         </div>
 
         {filteredProjects.length === 0 && (
-          <div className="text-center py-20"><p className="text-white/50 text-lg">No projects in this category yet, but maybe soon!</p></div>
+          <div className="empty-state handwritten">Nothing pinned here yet — probably soon.</div>
         )}
-      </div>
+
+        <div className="torn-note project-page-note handwritten">
+          Every project starts as a tiny idea I cannot stop thinking about.
+        </div>
+      </section>
     </div>
   );
 }

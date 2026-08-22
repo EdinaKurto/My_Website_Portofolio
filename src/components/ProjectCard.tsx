@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,54 +8,31 @@ interface ProjectCardProps {
   description: string;
   imageUrl: string;
   category: string;
+  tags?: string[];
 }
 
-export function ProjectCard({
-  projectId,
-  title,
-  description,
-  imageUrl,
-  category,
-}: ProjectCardProps) {
+export function ProjectCard({ projectId, title, description, imageUrl, category, tags = [] }: ProjectCardProps) {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(`/projects/${projectId}`);
-  };
-
   return (
-    <div
-      onClick={handleClick}
-      className="group relative overflow-hidden card-warm transition-all duration-500 hover:scale-[1.03] hover:-rotate-1 hover:glow-warm cursor-pointer"
-    >
-      {/* Image */}
-      <div className="relative h-64 overflow-hidden rounded-t-2xl">
-        <ImageWithFallback
-          src={imageUrl}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1d29] via-transparent to-transparent opacity-60"></div>
-
-        <div className="absolute top-4 right-4 px-4 py-1.5 bg-gradient-to-r from-[#3A6FF7] to-[#C5A9FF] backdrop-blur-sm rounded-full text-sm shadow-lg">
-          {category}
+    <article className="project-card" onClick={() => navigate(`/projects/${projectId}`)}>
+      <div className="project-card-image">
+        <ImageWithFallback src={imageUrl} alt={title} />
+        <span className="paper-pin" aria-hidden="true" />
+      </div>
+      <div className="project-card-copy">
+        <div className="project-card-kicker">{category}</div>
+        <div className="project-card-title-row">
+          <h3>{title}</h3>
+          <ArrowUpRight size={19} strokeWidth={1.5} />
         </div>
+        <p>{description}</p>
+        {tags.length > 0 && (
+          <div className="tag-row">
+            {tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}
+          </div>
+        )}
       </div>
-
-      {/* Content */}
-      <div className="p-6">
-        <h3 className="text-xl text-white mb-2 group-hover:text-[#C5A9FF] transition-colors">
-          {title}
-        </h3>
-        <p className="text-white/70 leading-relaxed">{description}</p>
-      </div>
-
-      {/* Sparkle decoration */}
-      <div className="absolute top-2 left-2 w-2 h-2 bg-[#C5A9FF] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div
-        className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-[#FFC7A8] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ transitionDelay: '0.1s' }}
-      ></div>
-    </div>
+    </article>
   );
 }
