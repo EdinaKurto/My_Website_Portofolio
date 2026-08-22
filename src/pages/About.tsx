@@ -1,101 +1,86 @@
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import { Sparkles, Heart, Lightbulb, Pencil } from 'lucide-react';
+import { Camera, Gamepad2, Heart, MapPin, Palette, PawPrint, Sparkles } from 'lucide-react';
 import me from '../photos/me.png';
+
 export function About() {
-  const values = [
-    {
-      icon: Sparkles,
-      title: 'Creativity',
-      description: 'Exploring new art and interactive ideas. Every project is a playground for imagination.',
-    },
-    {
-      icon: Lightbulb,
-      title: 'Clarity',
-      description: 'Clean, calm, and thoughtful design. Simplicity with purpose and intention.',
-    },
-    {
-      icon: Heart,
-      title: 'Heart',
-      description: 'Everything made with emotion, story, and love.',
-    },
+  const details = [
+    { icon: Gamepad2, title: 'Narrative games', text: 'I will inspect every room before continuing the actual story.' },
+    { icon: Camera, title: 'Photography', text: 'Ordinary places become references the second the light hits them right.' },
+    { icon: Palette, title: 'Art', text: 'A suspicious number of projects begin as tiny sketches in the margin.' },
+    { icon: MapPin, title: 'Sarajevo', text: 'Mountains, old streets and familiar interiors always find their way into my work.' },
+    { icon: PawPrint, title: 'Kenai', text: 'My Samoyed and completely unqualified creative supervisor.' },
+    { icon: Heart, title: 'Small details', text: 'The mug on the table matters. The old photo matters. The squeaky door probably matters too.' },
   ];
 
   return (
-    <div className="min-h-screen py-24 px-6 film-grain relative">
-      <div className="absolute inset-0 gradient-radial-warm opacity-40"></div>
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#C5A9FF]/10 border border-[#C5A9FF]/30 rounded-full mb-6">
-            <Heart className="text-[#FFC7A8]" size={16} />
-            <span className="text-white/90 text-sm">Made with love</span>
-          </div>
-          <h1 className="text-5xl md:text-6xl text-white mb-4">About Me</h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Building something, one pixel at a time
+    <div className="paper-page inner-page about-page">
+      <section className="page-width about-hero">
+        <div className="about-copy">
+          <span className="eyebrow">About</span>
+          <h1>Hi, I’m Edina.</h1>
+          <p className="handwritten about-tagline">I build worlds I wish I could step into.</p>
+          <p>
+            I’m a game developer and digital artist based in Sarajevo, Bosnia & Herzegovina. I love creating narrative experiences where environments, objects and tiny details quietly carry part of the story.
           </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 mb-20 items-center">
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden border-2 border-[#C5A9FF]/30 glow-warm">
-              <ImageWithFallback
-                src={me}
-                alt="Avellox Studio Workspace"
-                className="w-full h-[500px] object-cover"/>
-              <div className="absolute inset-0 gradient-warm opacity-30"></div>
-            </div>
-            <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full border-2 border-[#C5A9FF]/30 animate-pulse"></div>
-            <div
-              className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full border-2 border-[#FFC7A8]/20 animate-pulse"
-              style={{ animationDelay: '1s' }}></div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <p className="text-white/80 text-lg leading-relaxed">
-                Hi, I'm <span className="text-[#C5A9FF]">Edina</span> — the person behind Avellox Studio.
-              </p>
-              <p className="text-white/70 leading-relaxed">
-                I make cozy games, character-driven stories, and digital art.
-                My work combines game development, UI design, and illustration to create handcrafted
-                experiences that are personal and meaningful.</p>
-              <p className="text-white/70 leading-relaxed">
-                I'm currently working on <span className="text-[#FFC7A8]">Her Hands Remember</span>, 
-                a narrative first-person game about memory, Bosnian heritage, and old-style storytelling. 
-                Every detail is designed to make you feel something nostalgic.
-              </p>
-              <p className="text-white/70 leading-relaxed">
-                When I'm not coding or designing, I'm probably sketching new ideas, designing websites,
-                playing indie games, or making silly little animations.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-3 gap-4 pt-6">
-              <div className="card-warm p-4 border border-[#C5A9FF]/20 text-center">
-                <div className="text-3xl mb-1">✨</div>
-                <div className="text-white/60 text-sm">Still Learning</div>
-              </div>
-              <div className="card-warm p-4 border border-[#3A6FF7]/20 text-center">
-                <div className="text-3xl mb-1">🎮</div>
-                <div className="text-white/60 text-sm">Game Dev</div>
-              </div>
-              <div className="card-warm p-4 border border-[#FFC7A8]/20 text-center">
-                <div className="text-3xl mb-1">🎨</div>
-                <div className="text-white/60 text-sm">Designer</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="mt-20 card-warm p-12 border border-[#C5A9FF]/20 text-center gradient-warm">
-          <Pencil className="text-[#FFC7A8] mx-auto mb-6" size={48} />
-          <h3 className="text-2xl md:text-3xl text-white mb-4">
-            Let's Create Something Together!
-          </h3>
-          <p className="text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Whether you have a project idea, want to collaborate, or just want to chat, I'd love to hear from you!
+          <p>
+            My work sits somewhere between game development, visual storytelling, environment design and interactive narrative — usually with a sketchbook open somewhere nearby.
           </p>
+          <div className="about-availability"><span /> Open to game industry opportunities</div>
         </div>
-      </div>
+
+        <div className="about-portrait-wrap">
+          <div className="portrait-paper">
+            <img src={me} alt="Edina, the person behind Avellox Studio" />
+            <span className="tape tape-top" aria-hidden="true" />
+          </div>
+          <div className="portrait-caption handwritten">the person behind Avellox ♡</div>
+          <svg className="about-flower" viewBox="0 0 130 190" aria-hidden="true">
+            <path d="M67 184c-2-42 1-83 2-127M68 90c-21-17-34-18-46-14M69 118c19-19 34-23 48-18" />
+            <path d="M68 57c-8-10-4-26 5-26s15 16 3 27M22 76c4-11 17-13 23-5s-1 18-15 15M116 100c-4-10-17-12-23-3s1 19 14 15" />
+          </svg>
+        </div>
+      </section>
+
+      <section className="section page-width personal-details-section">
+        <div className="section-heading">
+          <span className="eyebrow">A few things that make me, me</span>
+          <h2>Outside the neat portfolio version.</h2>
+        </div>
+        <div className="personal-detail-grid">
+          {details.map((detail) => {
+            const Icon = detail.icon;
+            return (
+              <article key={detail.title} className="personal-detail-card">
+                <Icon size={20} strokeWidth={1.4} />
+                <h3>{detail.title}</h3>
+                <p>{detail.text}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="section about-philosophy-section">
+        <div className="page-width">
+          <div className="section-heading split-heading light-heading">
+            <div>
+              <span className="eyebrow">How I like to work</span>
+              <h2>Story first, details always.</h2>
+            </div>
+            <p className="handwritten">I like games that feel made by people, not assembled by a checklist.</p>
+          </div>
+          <div className="philosophy-grid">
+            <div><span>01</span><h3>Story first</h3><p>Mechanics should support the feeling of the experience, not fight it.</p></div>
+            <div><span>02</span><h3>Meaningful details</h3><p>Objects and spaces can say things a dialogue box never needs to explain.</p></div>
+            <div><span>03</span><h3>Handmade character</h3><p>I would rather keep a little imperfection than sand away all the personality.</p></div>
+            <div><span>04</span><h3>Places matter</h3><p>Environments can hold culture, history, belonging and memory all at once.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-width about-ending-note">
+        <Sparkles size={18} strokeWidth={1.4} />
+        <p className="handwritten">Always learning. Always making. Probably moving something three pixels to the left.</p>
+      </section>
     </div>
   );
 }

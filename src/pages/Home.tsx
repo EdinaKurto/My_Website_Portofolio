@@ -7,7 +7,7 @@ import { ToolBadge } from '../components/ToolBadge';
 import { ArtworkCard } from '../components/ArtworkCard';
 import { MicroProjectCard } from '../components/MicroProjectCard';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import Spline from '@splinetool/react-spline';
+
 import {
   ArrowRight,
   Sparkles,
@@ -58,12 +58,14 @@ export function Home() {
       {/* HERO SECTION */}
 <section className="relative min-h-screen w-full overflow-hidden film-grain bg-[#050816] flex flex-col justify-end">
 
-  {/* Spline background */}
-  <div className="absolute inset-0 -z-10">
-    <Spline scene="https://prod.spline.design/Ai9-rltr9tobPRZj/scene.splinecode" />
-    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#050816]/95" />
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <img
+      src="/photos/Hero_Page.png"
+      alt="Hero Background"
+      className="w-full h-full object-cover"
+    />
   </div>
-
 </section>
 
       {/* Featured Work Section */}
