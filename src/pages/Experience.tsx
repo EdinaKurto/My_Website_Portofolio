@@ -48,9 +48,9 @@ export function Experience() {
                 <h3>Education</h3>
               </div>
               <p>
-                <strong>International Burch University</strong>
+                <strong>SAE Institute Belgrade</strong>
                 <br />
-                Information Technology
+                Art and Animation in Video Games
               </p>
               <p className="small-copy">
                 Relevant areas: game development, programming, UX/UI, software
