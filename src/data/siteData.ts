@@ -12,7 +12,7 @@ import fortuneCover from "../photos/FortuneTeller_cover.png";
 import fortune1 from "../photos/FortuneTeller_1.png";
 import fortune2 from "../photos/FortuneTeller_2.png";
 
-import stayCover from "../photos/Stay_Cover1.png";
+import stayCover from "../photos/Stay_cover1.png";
 import stay1 from "../photos/Stay1.png";
 import stay2 from "../photos/Stay2.png";
 
