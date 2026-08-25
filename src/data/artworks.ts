@@ -10,7 +10,6 @@ import Img8 from '../photos/artworks/fragment_doma.jpg';
 import Img18 from '../photos/artworks/YouWereComing.png';
 import Img19 from '../photos/artworks/WillTheyStay.png';
 import Img10 from '../photos/artworks/julia_ref_sheet.png';
-import Img11 from '../photos/artworks/sunflower_1.png';
 import Img12 from '../photos/artworks/Main_menu_new.png';
 import Img13 from '../photos/artworks/tisina.jpg';
 import Img14 from '../photos/artworks/Stiker_1.png';
@@ -130,14 +129,6 @@ export const artworks: ArtworkItem[] = [
     year: '2024',
     category: 'Digital',
     imageUrl: Img19,
-  },
-  {
-    id: 11,
-    title: 'Sunflower – Game Concept Art https://www.instagram.com/necastiva/?utm_source=ig_web_button_share_sheet',
-    medium: 'Digital Painting',
-    year: '2024',
-    category: 'Concept Art',
-    imageUrl: Img11,
   },
   {
     id: 12,

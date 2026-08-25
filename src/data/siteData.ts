@@ -12,6 +12,10 @@ import fortuneCover from "../photos/FortuneTeller_cover.png";
 import fortune1 from "../photos/FortuneTeller_1.png";
 import fortune2 from "../photos/FortuneTeller_2.png";
 
+import TWWMHBCover from "../photos/TWWMHB_Cover.png";
+import TWW1 from "../photos/TWWMHB1.png";
+import TWW2 from "../photos/FortuneTeller_2.png";
+
 import stayCover from "../photos/Stay_cover1.png";
 import stay1 from "../photos/Stay1.png";
 import stay2 from "../photos/Stay2.png";
@@ -30,6 +34,12 @@ import shiba1 from "../photos/Shiba_1.png";
 import shiba2 from "../photos/Shiba_2.png";
 import shiba3 from "../photos/Shiba_3.png";
 
+import d13Cover from "../photos/d13_cover.png";
+import d1 from "../photos/d1.png";
+import d2 from "../photos/d2.png";
+import d3 from "../photos/d3.png";
+import d4 from "../photos/d4.png";
+
 import artBathroom from "../photos/artworks/Room_Bathroom.png";
 import artKitchen from "../photos/artworks/New_Kitchen_2.png";
 import artRoom from "../photos/artworks/Room_Game.png";
@@ -38,7 +48,6 @@ import artFragment from "../photos/artworks/fragment_doma.jpg";
 import artWizard from "../photos/artworks/Wizard.png";
 import artJulia from "../photos/artworks/julia_ref_sheet.png";
 import artTisina from "../photos/artworks/tisina.jpg";
-import artSunflower from "../photos/artworks/sunflower_1.png";
 import artComing from "../photos/artworks/YouWereComing.png";
 import artStay from "../photos/artworks/WillTheyStay.png";
 import artMenu from "../photos/artworks/Main_menu_new.png";
@@ -159,17 +168,17 @@ export const projects: PortfolioProject[] = [
     ],
   },
   {
-    slug: "you-were-always-coming",
-    title: "You Were Always Coming",
-    type: "Narrative Game",
-    year: "2025",
+    slug: "the-woman-who-missed-her-bus",
+    title: "The Woman Who Missed Her Bus",
+    type: "Visual Novel",
+    year: "2026",
     status: "Released",
     description:
       "A quiet, atmospheric narrative unfolding inside a fortune-teller's tent.",
     longDescription:
       "A compact narrative experience focused on atmosphere, character voice and a strong sense of place. The project explores how much emotion can be created with a small setting and carefully controlled visual direction.",
-    cover: fortuneCover,
-    gallery: [fortune1, fortune2],
+    cover: TWWMHBCover,
+    gallery: [TWW1, TWW2],
     role: "Game Developer / Artist",
     engine: "Ren'Py",
     perspective: "Visual Novel",
@@ -192,7 +201,7 @@ export const projects: PortfolioProject[] = [
           "Keeping the scope deliberately small so every visual and narrative beat could be polished.",
       },
     ],
-    link: "https://avelloxy.itch.io/you-were-always-coming",
+    link: "https://avelloxy.itch.io/the-woman-who-missed-her-bus",
   },
   {
     slug: "will-they-stay-together",
@@ -229,6 +238,42 @@ export const projects: PortfolioProject[] = [
       },
     ],
     link: "https://avelloxy.itch.io/will-they-stay-together",
+  },
+  {
+    slug: "you-were-always-coming",
+    title: "You Were Always Coming",
+    type: "Narrative Game",
+    year: "2025",
+    status: "Released",
+    description:
+      "A quiet, atmospheric narrative unfolding inside a fortune-teller's tent.",
+    longDescription:
+      "A compact narrative experience focused on atmosphere, character voice and a strong sense of place. The project explores how much emotion can be created with a small setting and carefully controlled visual direction.",
+    cover: fortuneCover,
+    gallery: [fortune1, fortune2],
+    role: "Game Developer / Artist",
+    engine: "Ren'Py",
+    perspective: "Visual Novel",
+    tags: ["Narrative", "Atmosphere", "Visual Novel"],
+    features: [
+      "Compact narrative structure",
+      "Moody visual direction",
+      "Character-focused writing",
+      "Small-scope production",
+    ],
+    process: [
+      {
+        title: "Mood",
+        description:
+          "Starting with lighting, color and a clear emotional tone before writing the final scene structure.",
+      },
+      {
+        title: "Build",
+        description:
+          "Keeping the scope deliberately small so every visual and narrative beat could be polished.",
+      },
+    ],
+    link: "https://avelloxy.itch.io/you-were-always-coming",
   },
   {
     slug: "potion-commotion",
@@ -337,6 +382,42 @@ export const projects: PortfolioProject[] = [
     ],
     link: "https://avelloxy.itch.io/dream-life",
   },
+  {
+    slug: "docket-13",
+    title: "Docket 13",
+    type: "Virtual Pet Game",
+    year: "2026",
+    status: "Released",
+    description:
+      "A warm virtual-pet experience where a Shiba lives across a set of hand-painted rooms.",
+    longDescription:
+      "Dream Life explores cozy interaction and gentle progression through a virtual pet. It combines illustrated environments with simple care systems and character customization.",
+    cover: d13Cover,
+    gallery: [d1, d2, d3, d13Cover, d4],
+    role: "Game Developer / Artist",
+    engine: "Unity · C#",
+    perspective: "2D",
+    tags: ["Virtual Pet", "2D Art", "Unity"],
+    features: [
+      "Pet needs system",
+      "Multiple illustrated rooms",
+      "Accessories and outfits",
+      "Soft, cozy visual direction",
+    ],
+    process: [
+      {
+        title: "Environment art",
+        description:
+          "Designing each room to feel like part of the same cozy visual world.",
+      },
+      {
+        title: "Interaction",
+        description:
+          "Keeping the care loop simple enough that personality and art stay at the center.",
+      },
+    ],
+    link: "https://avelloxy.itch.io/docket-13",
+  },
 ];
 
 export type ArtworkCategory =
@@ -419,14 +500,6 @@ export const artworks: ArtworkItem[] = [
     year: "2025",
     image: artTisina,
     medium: "Mixed media",
-  },
-  {
-    id: 9,
-    title: "Sunflower",
-    category: "Illustration",
-    year: "2024",
-    image: artSunflower,
-    medium: "Digital painting",
   },
   {
     id: 10,
