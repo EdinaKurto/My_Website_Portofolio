@@ -1,66 +1,89 @@
-import { useState } from 'react';
-import { X } from 'lucide-react';
-import { ArtworkCard } from '../components/ArtworkCard';
-import { artworks, ArtworkCategory, ArtworkItem } from '../data/artworks';
+import { X } from "lucide-react";
+import { useMemo, useState } from "react";
+import { BotanicalSprig } from "../components/Decor";
+import { ArtworkCategory, ArtworkItem, artworks } from "../data/siteData";
+
+const categories: ArtworkCategory[] = [
+  "All",
+  "Environment",
+  "Illustration",
+  "Concept Art",
+  "Mixed Media",
+];
 
 export function Artwork() {
-  const [selectedCategory, setSelectedCategory] = useState<ArtworkCategory>('All');
-  const [selectedArtwork, setSelectedArtwork] = useState<ArtworkItem | null>(null);
+  const [category, setCategory] = useState<ArtworkCategory>("All");
+  const [selected, setSelected] = useState<ArtworkItem | null>(null);
 
-  const categories: ArtworkCategory[] = ['All', 'Digital', 'Mixed Media', 'Concept Art', 'Illustration'];
-  const filteredArtworks = selectedCategory === 'All'
-    ? artworks
-    : artworks.filter((artwork) => artwork.category === selectedCategory);
+  const visible = useMemo(
+    () =>
+      category === "All"
+        ? artworks
+        : artworks.filter((item) => item.category === category),
+    [category]
+  );
 
   return (
-    <div className="paper-page inner-page artwork-page">
-      <section className="page-intro page-width artwork-intro">
-        <div>
-          <span className="eyebrow">Visual work</span>
+    <div className="inner-page artwork-page">
+      <section className="page-hero artwork-hero">
+        <BotanicalSprig className="artwork-sprig" />
+
+        <div className="container">
+          <p className="handwritten section-hand">illustrations, sketches & visual experiments</p>
           <h1>Artwork</h1>
-          <p className="handwritten">Illustrations, concepts, sketches and experiments collected along the way.</p>
+          <p className="page-intro">
+            A growing collection of environments, characters, mixed media and
+            visual ideas made across game projects and personal work.
+          </p>
+
+          <div className="filter-row">
+            {categories.map((item) => (
+              <button
+                className={category === item ? "filter-chip is-active" : "filter-chip"}
+                key={item}
+                onClick={() => setCategory(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="artwork-intro-note handwritten">sometimes this is research.<br/>sometimes I just wanted to draw a nice window.</div>
       </section>
 
-      <section className="page-width artwork-content">
-        <div className="filter-row" aria-label="Artwork filters">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={selectedCategory === category ? 'active' : ''}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+      <section className="paper-section page-content">
+        <div className="container">
+          <div className="artwork-grid">
+            {visible.map((item, index) => (
+              <button
+                key={item.id}
+                className={`artwork-tile artwork-tile--${(index % 8) + 1}`}
+                onClick={() => setSelected(item)}
+              >
+                <img src={item.image} alt={item.title} />
+                <span>
+                  <strong>{item.title}</strong>
+                  <small>{item.category} · {item.year}</small>
+                </span>
+              </button>
+            ))}
+          </div>
 
-        <div className="artwork-masonry">
-          {filteredArtworks.map((artwork, index) => (
-            <ArtworkCard
-              key={artwork.id}
-              title={artwork.title}
-              medium={artwork.medium}
-              year={artwork.year}
-              imageUrl={artwork.imageUrl}
-              className={`masonry-${(index % 6) + 1}`}
-              onClick={() => setSelectedArtwork(artwork)}
-            />
-          ))}
+          <p className="handwritten artwork-ending">
+            Beauty is in small things. Stories are in every place. ♡
+          </p>
         </div>
-
-        <div className="artwork-page-note handwritten">I collect little moments and turn them into worlds. ♡</div>
       </section>
 
-      {selectedArtwork && (
-        <div className="art-lightbox" role="dialog" aria-modal="true" aria-label={selectedArtwork.title} onClick={() => setSelectedArtwork(null)}>
-          <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close" onClick={() => setSelectedArtwork(null)} aria-label="Close artwork"><X size={21} /></button>
-            <img src={selectedArtwork.imageUrl} alt={selectedArtwork.title} />
-            <div className="lightbox-caption">
-              <h2>{selectedArtwork.title}</h2>
-              <p>{selectedArtwork.medium} · {selectedArtwork.year}</p>
+      {selected && (
+        <div className="art-modal" role="dialog" aria-modal="true">
+          <button className="art-modal__close" onClick={() => setSelected(null)}>
+            <X size={20} />
+          </button>
+          <div className="art-modal__content">
+            <img src={selected.image} alt={selected.title} />
+            <div>
+              <h2>{selected.title}</h2>
+              <p>{selected.medium} · {selected.year}</p>
             </div>
           </div>
         </div>

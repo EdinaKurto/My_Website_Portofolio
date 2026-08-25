@@ -1,71 +1,102 @@
-import { useState } from 'react';
-import { ProjectCard } from '../components/ProjectCard';
-import { projects, ProjectCategory } from '../data/projects';
+import { ArrowRight } from "lucide-react";
+import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { MountainSketch, PaperNote } from "../components/Decor";
+import { projects } from "../data/siteData";
 
-function VillageSketch() {
-  return (
-    <svg className="village-sketch" viewBox="0 0 520 120" aria-hidden="true">
-      <path d="M8 106 72 55l42 29 55-62 59 67 36-35 54 58 43-47 89 41" />
-      <path d="M72 106h390" />
-      <path d="M270 106V79l22-17 22 17v27M282 106V87h13v19" />
-      <path d="M351 106V82l18-14 19 14v24M360 106V90h11v16" />
-      <path d="M221 106V82m-10 10 10-21 10 21M402 106V78m-12 14 12-25 12 25" />
-    </svg>
-  );
-}
+const filters = ["All", "Narrative", "Unity", "Visual Novel", "Released", "In Development"];
 
 export function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
-  const categories: ProjectCategory[] = ['All', 'Games', 'UI/UX', 'Assets', 'Animations'];
+  const [filter, setFilter] = useState("All");
+  const navigate = useNavigate();
 
-  const filteredProjects = selectedCategory === 'All'
-    ? projects
-    : projects.filter((project) => project.category === selectedCategory);
+  const filtered = useMemo(() => {
+    if (filter === "All") return projects;
+
+    return projects.filter((project) => {
+      if (filter === "Narrative") {
+        return (
+          project.type.toLowerCase().includes("narrative") ||
+          project.tags.some((tag) => tag.toLowerCase().includes("narrative"))
+        );
+      }
+
+      if (filter === "Released" || filter === "In Development") {
+        return project.status === filter;
+      }
+
+      return (
+        project.engine.toLowerCase().includes(filter.toLowerCase()) ||
+        project.type.toLowerCase().includes(filter.toLowerCase()) ||
+        project.tags.some((tag) => tag.toLowerCase().includes(filter.toLowerCase()))
+      );
+    });
+  }, [filter]);
 
   return (
-    <div className="paper-page inner-page">
-      <section className="page-intro page-width projects-intro">
-        <div>
-          <span className="eyebrow">Portfolio</span>
-          <h1>Projects</h1>
-          <p className="handwritten">Games, prototypes and interactive things that became bigger than the first scribble.</p>
-        </div>
-        <VillageSketch />
-      </section>
+    <div className="inner-page">
+      <section className="page-hero page-hero--projects">
+        <div className="container page-hero__grid">
+          <div>
+            <p className="handwritten section-hand">games, prototypes & experiments</p>
+            <h1>Projects</h1>
+            <p className="page-intro">
+              A collection of narrative games, small experiments and projects
+              built while learning how story, interaction and visual direction can
+              support each other.
+            </p>
+          </div>
 
-      <section className="page-width projects-content">
-        <div className="filter-row" aria-label="Project filters">
-          {categories.map((category) => (
+          <MountainSketch className="page-mountain" />
+        </div>
+
+        <div className="container filter-row">
+          {filters.map((item) => (
             <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={selectedCategory === category ? 'active' : ''}
+              key={item}
+              className={filter === item ? "filter-chip is-active" : "filter-chip"}
+              onClick={() => setFilter(item)}
             >
-              {category}
+              {item}
             </button>
           ))}
         </div>
+      </section>
 
-        <div className="project-grid">
-          {filteredProjects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              projectId={project.id}
-              title={project.title}
-              description={project.shortDescription}
-              imageUrl={project.coverImage}
-              category={project.category}
-              tags={project.tags}
-            />
+      <section className="paper-section page-content">
+        <div className="container project-grid">
+          {filtered.map((project, index) => (
+            <article
+              className="project-card"
+              key={project.slug}
+              onClick={() => navigate(`/projects/${project.slug}`)}
+            >
+              <div className="project-card__image">
+                <img src={project.cover} alt={project.title} />
+                <span className="project-card__status">{project.status}</span>
+              </div>
+
+              <div className="project-card__body">
+                <p className="project-kicker">{project.type} · {project.year}</p>
+                <h2>{project.title}</h2>
+                <p>{project.description}</p>
+                <div className="project-tags">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <span className="inline-link">
+                  View project <ArrowRight size={15} />
+                </span>
+              </div>
+
+              {index === 2 && (
+                <PaperNote className="project-card-note">
+                  Every project starts as a tiny idea I can&apos;t stop thinking about.
+                </PaperNote>
+              )}
+            </article>
           ))}
-        </div>
-
-        {filteredProjects.length === 0 && (
-          <div className="empty-state handwritten">Nothing pinned here yet — probably soon.</div>
-        )}
-
-        <div className="torn-note project-page-note handwritten">
-          Every project starts as a tiny idea I cannot stop thinking about.
         </div>
       </section>
     </div>

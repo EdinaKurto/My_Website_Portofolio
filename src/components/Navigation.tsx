@@ -1,66 +1,78 @@
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sprout } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, Sprout, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+
+const links = [
+  { label: "Home", to: "/" },
+  { label: "Projects", to: "/projects" },
+  { label: "Artwork", to: "/artwork" },
+  { label: "About", to: "/about" },
+  { label: "Experience", to: "/experience" },
+  { label: "Contact", to: "/contact" },
+];
 
 export function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Artwork', path: '/artwork' },
-    { name: 'About', path: '/about' },
-    { name: 'Experience', path: '/experience' },
-    { name: 'Contact', path: '/contact' },
-  ];
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 16);
+    handler();
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
-  const isActive = (path: string) =>
-    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+  useEffect(() => setOpen(false), [location.pathname]);
+
+  const active = (to: string) =>
+    to === "/projects"
+      ? location.pathname.startsWith("/projects")
+      : location.pathname === to;
 
   return (
-    <header className="site-nav-wrap">
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link to="/" className="brand" onClick={() => setIsMenuOpen(false)}>
-          <span className="brand-mark" aria-hidden="true"><Sprout size={18} strokeWidth={1.5} /></span>
+    <header className={`site-nav ${scrolled ? "site-nav--scrolled" : ""}`}>
+      <div className="site-nav__inner">
+        <Link className="site-brand" to="/">
+          <Sprout size={15} strokeWidth={1.5} />
           <span>Avellox Studio</span>
         </Link>
 
-        <div className="nav-links desktop-nav">
-          {navLinks.map((link) => (
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {links.map((item) => (
             <Link
-              key={link.path}
-              to={link.path}
-              className={`nav-link ${isActive(link.path) ? 'active' : ''}`}
+              className={active(item.to) ? "is-active" : ""}
+              key={item.to}
+              to={item.to}
             >
-              {link.name}
+              {item.label}
             </Link>
           ))}
-        </div>
+          <span className="sun-mark" aria-hidden="true">☼</span>
+        </nav>
 
         <button
           className="mobile-menu-button"
-          onClick={() => setIsMenuOpen((open) => !open)}
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
+          onClick={() => setOpen((value) => !value)}
+          aria-label="Toggle navigation"
+          aria-expanded={open}
         >
-          {isMenuOpen ? <X size={21} /> : <Menu size={21} />}
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
-      </nav>
+      </div>
 
-      {isMenuOpen && (
-        <div className="mobile-nav">
-          {navLinks.map((link) => (
+      {open && (
+        <nav className="mobile-nav" aria-label="Mobile navigation">
+          {links.map((item) => (
             <Link
-              key={link.path}
-              to={link.path}
-              className={`nav-link ${isActive(link.path) ? 'active' : ''}`}
-              onClick={() => setIsMenuOpen(false)}
+              className={active(item.to) ? "is-active" : ""}
+              key={item.to}
+              to={item.to}
             >
-              {link.name}
+              {item.label}
             </Link>
           ))}
-        </div>
+        </nav>
       )}
     </header>
   );

@@ -1,181 +1,256 @@
-import { useNavigate } from 'react-router-dom';
-import { ArrowDown, ArrowRight, Camera, Gamepad2, MapPin, Palette, Sparkles } from 'lucide-react';
-import { CustomButton } from '../components/CustomButton';
-import { FeaturedWorkCard } from '../components/FeaturedWorkCard';
-import { ArtworkCard } from '../components/ArtworkCard';
-import { projects } from '../data/projects';
-import { artworks } from '../data/artworks';
-
-function MountainSketch() {
-  return (
-    <svg className="mountain-sketch" viewBox="0 0 340 130" aria-hidden="true">
-      <path d="M8 112 72 53l36 32 48-62 52 67 31-31 92 53" />
-      <path d="M50 112h250" />
-      <path d="M198 112v-30l18-13 17 13v30M209 112V91h13v21" />
-      <path d="M256 112V88m-8 8 8-17 8 17m-13 4 5-11 6 11" />
-    </svg>
-  );
-}
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { BotanicalSprig, PaperNote, Tape } from "../components/Decor";
+import { artworks, hero, projects } from "../data/siteData";
 
 export function Home() {
   const navigate = useNavigate();
   const featured = projects.slice(0, 3);
-  const gallery = artworks.slice(0, 5);
+  const art = artworks.slice(0, 6);
 
   return (
-    <div className="paper-page home-page">
-      <section className="home-hero page-width">
-        <div className="hero-copy">
-          <span className="eyebrow">Game developer · artist · storyteller</span>
-          <h1>Crafting interactive worlds and visual stories.</h1>
-          <p className="handwritten hero-handwriting">
-            Games are how I collect the places, feelings and little moments I do not want to forget.
-          </p>
-          <p className="hero-body">
-            I create story-driven games and visual work shaped by atmosphere, culture, memory and the details that make a place feel lived in.
-          </p>
+    <div className="home-page">
+      <section className="home-hero">
+        <BotanicalSprig className="hero-sprig hero-sprig--left" />
 
-          <div className="hero-actions">
-            <CustomButton onClick={() => navigate('/projects')}>
-              View projects <ArrowRight size={17} />
-            </CustomButton>
-            <CustomButton variant="secondary" onClick={() => navigate('/artwork')}>
-              Explore artwork
-            </CustomButton>
+        <div className="container home-hero__grid">
+          <div className="home-hero__copy">
+            <p className="eyebrow">Game developer · artist · storyteller</p>
+
+            <h1>
+              Crafting
+              <br />
+              interactive worlds
+              <br />
+              <em>and visual stories.</em>
+            </h1>
+
+            <p className="handwritten hero-hand">
+              Games are how I remember, feel, and share the places that mean
+              something.
+            </p>
+
+            <p className="hero-intro">
+              I&apos;m Edina, a game developer and digital artist creating
+              narrative experiences shaped by memory, atmosphere, culture and
+              meaningful places.
+            </p>
+
+            <div className="hero-actions">
+              <button className="button button--primary" onClick={() => navigate("/projects")}>
+                View Projects <ArrowRight size={15} />
+              </button>
+              <button className="button button--secondary" onClick={() => navigate("/artwork")}>
+                Explore Artwork
+              </button>
+            </div>
           </div>
 
-          <div className="hero-location">
-            <MapPin size={15} strokeWidth={1.5} />
-            Sarajevo, Bosnia & Herzegovina
+          <div className="home-hero__visual">
+            <div className="hero-image">
+              <img src={hero} alt="A warm illustrated Balkan mountain village" />
+            </div>
+
+            <div className="hero-polaroid">
+              <Tape />
+              <img src={art[2].image} alt={art[2].title} />
+              <span className="handwritten">a world before it becomes a level</span>
+            </div>
+
+            <PaperNote className="hero-note">
+              Some of my favourite ideas begin with a place I don&apos;t want to
+              forget. ♡
+            </PaperNote>
           </div>
         </div>
 
-        <div className="hero-storyboard" aria-label="A collage of Avellox Studio work">
-          <div className="hero-main-photo">
-            <img src={projects[0]?.coverImage} alt={projects[0]?.title ?? 'Avellox game project'} />
-            <span className="tape tape-top-left" aria-hidden="true" />
-            <span className="photo-caption handwritten">a place becomes a story when someone remembers it.</span>
-          </div>
-
-          {gallery[0] && (
-            <div className="hero-polaroid hero-polaroid-one">
-              <img src={gallery[0].imageUrl} alt={gallery[0].title} />
-              <span className="handwritten">sketchbook fragment</span>
-            </div>
-          )}
-
-          {gallery[1] && (
-            <div className="hero-polaroid hero-polaroid-two">
-              <img src={gallery[1].imageUrl} alt={gallery[1].title} />
-              <span className="handwritten">light + memory</span>
-            </div>
-          )}
-
-          <div className="hero-note handwritten">
-            some of my favourite ideas begin with a room, an object, or a feeling I cannot quite explain. ♡
-          </div>
-          <MountainSketch />
-        </div>
-
-        <a href="#selected-work" className="scroll-cue">
-          <ArrowDown size={17} />
-          <span>Scroll to explore</span>
+        <a className="scroll-mark" href="#selected">
+          <ArrowDown size={15} />
+          Scroll to explore
         </a>
       </section>
 
-      <section id="selected-work" className="section page-width selected-work">
-        <div className="section-heading split-heading">
-          <div>
-            <span className="eyebrow">Selected work</span>
-            <h2>Stories I’ve been building.</h2>
+      <section className="paper-section" id="selected">
+        <div className="container">
+          <header className="section-heading">
+            <p className="handwritten section-hand">selected work</p>
+            <h2>Stories I&apos;ve been building.</h2>
+            <p>
+              A few projects where game systems, visual direction and storytelling
+              are built to support the same feeling.
+            </p>
+          </header>
+
+          <div className="featured-projects">
+            {featured.map((project, index) => (
+              <article
+                key={project.slug}
+                className={`featured-story featured-story--${index + 1}`}
+                onClick={() => navigate(`/projects/${project.slug}`)}
+              >
+                <div className="featured-story__image">
+                  <img src={project.cover} alt={project.title} />
+                  <span className="project-index">0{index + 1}</span>
+                </div>
+
+                <div className="featured-story__body">
+                  <p className="project-kicker">
+                    {project.type} · {project.status}
+                  </p>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+
+                  <div className="project-tags">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+
+                  <span className="inline-link">
+                    View Project <ArrowRight size={15} />
+                  </span>
+                </div>
+              </article>
+            ))}
           </div>
-          <p>
-            A few projects that best show how I combine development, visual direction, interaction and narrative design.
+
+          <div className="center-action">
+            <button className="button button--secondary" onClick={() => navigate("/projects")}>
+              See all projects <ArrowRight size={15} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="memory-break">
+        <div className="container memory-break__grid">
+          <div className="memory-break__copy">
+            <p className="handwritten section-hand section-hand--light">behind Avellox</p>
+            <h2>Most projects start with something small.</h2>
+
+            <div className="memory-list">
+              <span>A photograph.</span>
+              <span>A room I remember.</span>
+              <span>An object somebody kept.</span>
+              <span>A place that already feels like a story.</span>
+            </div>
+
+            <p>
+              I like building outward from those details until they become spaces,
+              interactions and characters the player can spend time with.
+            </p>
+
+            <button className="inline-link inline-link--light" onClick={() => navigate("/about")}>
+              Read more about my process <ArrowRight size={15} />
+            </button>
+          </div>
+
+          <div className="memory-collage">
+            <figure className="memory-photo memory-photo--one">
+              <img src={art[4].image} alt={art[4].title} />
+              <figcaption className="handwritten">{art[4].title}</figcaption>
+            </figure>
+            <figure className="memory-photo memory-photo--two">
+              <img src={featured[1].gallery[0]} alt="" />
+            </figure>
+            <figure className="memory-photo memory-photo--three">
+              <img src={art[6]?.image ?? art[1].image} alt="" />
+            </figure>
+            <PaperNote className="memory-note">
+              Keep the imperfect bits. They usually become the interesting ones.
+            </PaperNote>
+          </div>
+        </div>
+      </section>
+
+      <section className="paper-section art-preview">
+        <div className="container">
+          <div className="split-heading">
+            <header className="section-heading section-heading--compact">
+              <p className="handwritten section-hand">artwork & experiments</p>
+              <h2>Things I make between the games.</h2>
+            </header>
+
+            <button className="inline-link" onClick={() => navigate("/artwork")}>
+              View full gallery <ArrowRight size={15} />
+            </button>
+          </div>
+
+          <div className="home-art-grid">
+            {art.map((item, index) => (
+              <button
+                key={item.id}
+                className={`home-art home-art--${index + 1}`}
+                onClick={() => navigate("/artwork")}
+              >
+                <img src={item.image} alt={item.title} />
+                <span className="art-overlay">
+                  <strong>{item.title}</strong>
+                  <small>{item.medium} · {item.year}</small>
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <p className="handwritten art-signoff">
+            I collect little moments and turn them into worlds. ♡
           </p>
         </div>
+      </section>
 
-        <div className="featured-grid">
-          {featured.map((project) => (
-            <div key={project.id} onClick={() => navigate(`/projects/${project.id}`)}>
-              <FeaturedWorkCard
-                title={project.title}
-                subtitle={project.tags.slice(0, 2).join(' · ')}
-                imageUrl={project.coverImage}
-                description={project.shortDescription}
-              />
+      <section className="about-preview">
+        <div className="container about-preview__grid">
+          <div className="about-preview__copy">
+            <p className="handwritten section-hand">the person behind it</p>
+            <h2>Hi, I&apos;m Edina.</h2>
+            <p className="about-preview__lead">
+              I like games that feel lived-in.
+            </p>
+            <p>
+              Rooms you want to inspect, objects that quietly say something about
+              the people who owned them, and places that feel as though they
+              existed before the player arrived.
+            </p>
+
+            <div className="about-pills">
+              <span>story first</span>
+              <span>meaningful details</span>
+              <span>handmade feeling</span>
             </div>
-          ))}
-        </div>
 
-        <div className="section-end-link">
-          <button className="text-link" onClick={() => navigate('/projects')}>
-            See all projects <ArrowRight size={16} />
+            <button className="button button--primary" onClick={() => navigate("/about")}>
+              More about me <ArrowRight size={15} />
+            </button>
+          </div>
+
+          <div className="about-preview__board">
+            <div className="about-board-image">
+              <img src={art[3].image} alt="A warm creative interior" />
+            </div>
+            <PaperNote className="about-board-note">
+              still learning,
+              <br />
+              still making,
+              <br />
+              still curious.
+            </PaperNote>
+            <BotanicalSprig className="about-board-sprig" />
+          </div>
+        </div>
+      </section>
+
+      <section className="closing-section">
+        <div className="container closing-section__inner">
+          <p className="handwritten">one last page...</p>
+          <h2>
+            Let&apos;s make something
+            <br />
+            worth remembering.
+          </h2>
+          <button className="button button--paper" onClick={() => navigate("/contact")}>
+            Get in touch <ArrowRight size={15} />
           </button>
         </div>
-      </section>
-
-      <section className="section studio-story-section">
-        <div className="page-width studio-story-grid">
-          <div className="studio-collage">
-            {gallery.slice(2, 5).map((art, index) => (
-              <figure key={art.id} className={`story-photo story-photo-${index + 1}`}>
-                <img src={art.imageUrl} alt={art.title} />
-              </figure>
-            ))}
-            <div className="story-note handwritten">I collect little pieces of the world and turn them into places you can explore.</div>
-          </div>
-
-          <div className="studio-story-copy">
-            <span className="eyebrow">Behind Avellox</span>
-            <h2>A small studio name for one very curious person.</h2>
-            <p>
-              Avellox is the home for my games, artwork and experiments. I like projects where environments are not just backgrounds — they carry memories, personality and quiet bits of story.
-            </p>
-            <p>
-              My process usually moves between sketching, writing, programming, photographing references and making the same tiny detail three times until it finally feels right.
-            </p>
-
-            <div className="identity-list">
-              <div><Gamepad2 size={19} /><span><strong>Game development</strong><small>Unity, C#, interaction and systems</small></span></div>
-              <div><Palette size={19} /><span><strong>Visual storytelling</strong><small>Concept art, UI and environment direction</small></span></div>
-              <div><Camera size={19} /><span><strong>Finding references</strong><small>Places, photographs, objects and everyday life</small></span></div>
-            </div>
-
-            <CustomButton variant="secondary" onClick={() => navigate('/about')}>
-              More about me <ArrowRight size={17} />
-            </CustomButton>
-          </div>
-        </div>
-      </section>
-
-      <section className="section page-width art-preview-section">
-        <div className="section-heading split-heading">
-          <div>
-            <span className="eyebrow">Artwork & experiments</span>
-            <h2>Before a world becomes playable.</h2>
-          </div>
-          <p className="handwritten">sketches, strange ideas, studies and the occasional happy accident.</p>
-        </div>
-
-        <div className="home-art-grid">
-          {gallery.slice(0, 4).map((art, index) => (
-            <ArtworkCard
-              key={art.id}
-              title={art.title}
-              medium={art.medium}
-              year={art.year}
-              imageUrl={art.imageUrl}
-              className={`home-art-${index + 1}`}
-              onClick={() => navigate('/artwork')}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="home-closing page-width">
-        <Sparkles size={19} strokeWidth={1.4} />
-        <p className="handwritten">Still learning. Still making. Still collecting stories.</p>
-        <CustomButton onClick={() => navigate('/contact')}>Say hello <ArrowRight size={17} /></CustomButton>
       </section>
     </div>
   );

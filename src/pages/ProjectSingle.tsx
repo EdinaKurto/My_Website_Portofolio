@@ -1,149 +1,172 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, CalendarDays, Hammer, UserRound } from 'lucide-react';
-import { CustomButton } from '../components/CustomButton';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import { getProjectById } from '../data/projects';
+import {
+  ArrowLeft,
+  ArrowRight,
+  CircleDot,
+  Gamepad2,
+  Monitor,
+  Wrench,
+} from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
+import { MountainSketch, PaperNote } from "../components/Decor";
+import { projects } from "../data/siteData";
 
 export function ProjectSingle() {
+  const { slug } = useParams();
   const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>();
-  const project = getProjectById(Number(id));
+  const project = projects.find((item) => item.slug === slug);
 
   if (!project) {
     return (
-      <div className="paper-page project-missing">
+      <div className="missing-page">
         <h1>Project not found.</h1>
-        <button className="text-link" onClick={() => navigate('/projects')}><ArrowLeft size={16} /> Back to projects</button>
+        <button className="button button--primary" onClick={() => navigate("/projects")}>
+          Back to Projects
+        </button>
       </div>
     );
   }
 
+  const projectIndex = projects.findIndex((item) => item.slug === project.slug);
+  const nextProject = projects[(projectIndex + 1) % projects.length];
+
   return (
-    <div className="paper-page inner-page project-detail-page">
-      <section className="page-width project-hero">
-        <div className="project-hero-copy">
-          <button className="back-link" onClick={() => navigate('/projects')}>
+    <div className="project-detail">
+      <section className="project-detail__hero">
+        <div className="container">
+          <button className="back-link" onClick={() => navigate("/projects")}>
             <ArrowLeft size={15} /> Back to Projects
           </button>
-          <span className="eyebrow">{project.category}</span>
-          <h1>{project.title}</h1>
-          <p className="handwritten project-tagline">{project.tagline}</p>
-          <p className="project-intro-copy">{project.shortDescription}</p>
 
-          <div className="project-meta-grid">
-            <div><UserRound size={17} /><span><small>Role</small>{project.overview.role}</span></div>
-            <div><CalendarDays size={17} /><span><small>Timeline</small>{project.overview.timeline}</span></div>
-            <div><Hammer size={17} /><span><small>Tools</small>{project.overview.tools.slice(0, 3).join(', ')}</span></div>
-          </div>
+          <div className="project-detail__hero-grid">
+            <div className="project-detail__intro">
+              <p className="handwritten project-detail__type">
+                {project.type} · {project.status}
+              </p>
+              <h1>{project.title}</h1>
+              <p>{project.description}</p>
 
-          {project.link && (
-            <a className="story-button primary project-external-link" href={project.link} target="_blank" rel="noreferrer">
-              View project <ArrowRight size={17} />
-            </a>
-          )}
-        </div>
-
-        <div className="project-hero-visual">
-          <div className="project-photo-paper">
-            <ImageWithFallback src={project.coverImage} alt={project.title} />
-            <span className="tape tape-top" aria-hidden="true" />
-          </div>
-          <div className="project-quote handwritten">“The interesting part is never only what happened — it is what the place still remembers.”</div>
-        </div>
-      </section>
-
-      {project.gallery.length > 0 && (
-        <section className="page-width screenshot-strip-section">
-          <div className="screenshot-strip">
-            {project.gallery.slice(0, 5).map((image, index) => (
-              <div className="screenshot-thumb" key={index}>
-                <ImageWithFallback src={image} alt={`${project.title} screenshot ${index + 1}`} />
+              <div className="project-facts">
+                <div>
+                  <Wrench size={17} />
+                  <span>Role</span>
+                  <strong>{project.role}</strong>
+                </div>
+                <div>
+                  <Monitor size={17} />
+                  <span>Engine</span>
+                  <strong>{project.engine}</strong>
+                </div>
+                <div>
+                  <Gamepad2 size={17} />
+                  <span>Format</span>
+                  <strong>{project.perspective}</strong>
+                </div>
+                <div>
+                  <CircleDot size={17} />
+                  <span>Status</span>
+                  <strong>{project.status}</strong>
+                </div>
               </div>
-            ))}
-          </div>
-        </section>
-      )}
 
-      <section className="section page-width project-overview-grid">
-        <div className="project-long-copy">
-          <span className="eyebrow">About the project</span>
-          <h2>What I wanted this project to feel like.</h2>
-          <p>{project.overview.description}</p>
-        </div>
-
-        <aside className="project-facts paper-note-card">
-          <span className="handwritten">project notes</span>
-          <h3>What I worked on</h3>
-          <div className="tag-row large">
-            {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
-          </div>
-          {project.overview.additionalHelp && project.overview.additionalHelp.length > 0 && (
-            <div className="collaborators">
-              <h4>Additional help</h4>
-              {project.overview.additionalHelp.map((helper) => (
-                <p key={helper.name}>
-                  {helper.link ? <a href={helper.link} target="_blank" rel="noreferrer">{helper.name}</a> : helper.name}
-                  <small>{helper.role}</small>
-                </p>
-              ))}
+              {project.link && (
+                <a
+                  className="button button--primary"
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Play / View Project <ArrowRight size={15} />
+                </a>
+              )}
             </div>
-          )}
-        </aside>
-      </section>
 
-      <section className="section soft-olive-section">
-        <div className="page-width">
-          <div className="section-heading split-heading light-heading">
-            <div>
-              <span className="eyebrow">Design focus</span>
-              <h2>Features & highlights</h2>
+            <div className="project-detail__visual">
+              <div className="project-hero-image">
+                <img src={project.cover} alt={project.title} />
+              </div>
+
+              <PaperNote className="project-quote">
+                It&apos;s not just a place.
+                <br />
+                It&apos;s the feeling of being somewhere you belong.
+              </PaperNote>
             </div>
-            <p className="handwritten">the things I kept coming back to while making it.</p>
           </div>
-          <div className="feature-grid">
-            {project.features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <article className="feature-card" key={index}>
-                  <Icon size={22} strokeWidth={1.4} />
-                  <h3>{feature.title}</h3>
-                  <p>{feature.description}</p>
-                </article>
-              );
-            })}
+
+          <div className="screenshot-strip">
+            {project.gallery.length > 0 ? (
+              project.gallery.slice(0, 5).map((image, index) => (
+                <div key={`${image}-${index}`} className="screenshot-thumb">
+                  <img src={image} alt={`${project.title} screenshot ${index + 1}`} />
+                </div>
+              ))
+            ) : (
+              <p className="handwritten no-gallery-note">More screenshots coming soon.</p>
+            )}
           </div>
         </div>
       </section>
 
-      <section className="section page-width process-section">
-        <div className="section-heading split-heading">
+      <section className="paper-section project-about">
+        <div className="container project-about__grid">
           <div>
-            <span className="eyebrow">Behind the scenes</span>
-            <h2>From idea to something playable.</h2>
+            <p className="handwritten section-hand">about the project</p>
+            <h2>Built around a feeling, then turned into systems.</h2>
+            <p>{project.longDescription}</p>
+
+            <h3>My role</h3>
+            <p>
+              {project.role}. I worked across design, visual development,
+              implementation and iteration, keeping the experience consistent from
+              the first reference image to the playable build.
+            </p>
           </div>
-          <p>Research, messy experiments, greyboxes, revisions and eventually something that starts to feel alive.</p>
+
+          <aside className="feature-paper">
+            <h3>Key features</h3>
+            <ul>
+              {project.features.map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
+          </aside>
         </div>
-
-        <p className="process-description">{project.process.description}</p>
-
-        {project.process.images.length > 0 && (
-          <div className="process-images">
-            {project.process.images.map((image, index) => (
-              <figure key={index} className={`process-photo process-photo-${(index % 3) + 1}`}>
-                <ImageWithFallback src={image} alt={`${project.title} process ${index + 1}`} />
-                <figcaption className="handwritten">process {String(index + 1).padStart(2, '0')}</figcaption>
-              </figure>
-            ))}
-          </div>
-        )}
       </section>
 
-      <section className="page-width next-project-panel">
-        <div>
-          <span className="eyebrow">Keep exploring</span>
-          <h2>More worlds are waiting.</h2>
+      <section className="process-section">
+        <div className="container">
+          <header className="section-heading">
+            <p className="handwritten section-hand">from idea to world</p>
+            <h2>Development process</h2>
+          </header>
+
+          <div className="process-grid">
+            {project.process.map((item, index) => (
+              <article key={item.title} className="process-step">
+                <span>0{index + 1}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
+
+          <MountainSketch className="process-mountains" />
         </div>
-        <CustomButton onClick={() => navigate('/projects')}>Back to all projects <ArrowRight size={17} /></CustomButton>
+      </section>
+
+      <section className="next-project">
+        <div className="container next-project__inner">
+          <div>
+            <p className="handwritten">next project</p>
+            <h2>{nextProject.title}</h2>
+          </div>
+          <button
+            className="button button--paper"
+            onClick={() => navigate(`/projects/${nextProject.slug}`)}
+          >
+            Continue <ArrowRight size={15} />
+          </button>
+        </div>
       </section>
     </div>
   );

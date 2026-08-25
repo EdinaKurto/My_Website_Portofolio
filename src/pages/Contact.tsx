@@ -1,90 +1,124 @@
-import { useState, type ChangeEvent, type FormEvent } from 'react';
-import { Github, Instagram, Linkedin, Mail, MapPin, Send } from 'lucide-react';
+import { FormEvent, useState } from "react";
+import { Github, Instagram, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { BotanicalSprig, MountainSketch, Tape } from "../components/Decor";
+import { hero } from "../data/siteData";
 
 export function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [statusMessage, setStatusMessage] = useState<string | null>(null);
-  const [statusError, setStatusError] = useState<string | null>(null);
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mnnkzpjl';
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((current) => ({ ...current, [e.target.name]: e.target.value }));
-  };
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatusMessage(null);
-    setStatusError(null);
+    const form = event.currentTarget;
+    const data = new FormData(form);
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(formData),
+      const response = await fetch("https://formspree.io/f/mnnkzpjl", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
       });
 
-      if (!response.ok) throw new Error('Unable to submit');
-      setStatusMessage('Thank you — your message made it through. ♡');
-      setFormData({ name: '', email: '', message: '' });
+      if (!response.ok) throw new Error("Form submission failed");
+
+      form.reset();
+      setStatus("sent");
     } catch {
-      setStatusError('Something went wrong. Please try again, or email me directly.');
-    } finally {
-      setIsSubmitting(false);
+      setStatus("error");
     }
-  };
+  }
 
   return (
-    <div className="paper-page inner-page contact-page">
-      <section className="page-width contact-layout">
-        <div className="contact-copy">
-          <span className="eyebrow">Let’s connect</span>
-          <h1>Let’s create something meaningful.</h1>
-          <p className="handwritten contact-handwriting">Have a project in mind, a studio looking for someone, or just want to say hi?</p>
-          <p>I’d love to hear from you. I’m open to game industry opportunities, collaborations and interesting creative work.</p>
+    <div className="inner-page contact-page">
+      <section className="contact-section">
+        <BotanicalSprig className="contact-sprig" />
 
-          <div className="contact-details">
-            <a href="mailto:avelloxstudio@gmail.com"><Mail size={18} /> avelloxstudio@gmail.com</a>
-            <span><MapPin size={18} /> Sarajevo, Bosnia & Herzegovina</span>
+        <div className="container contact-grid">
+          <div className="contact-copy">
+            <p className="handwritten section-hand">let&apos;s connect</p>
+            <h1>
+              Let&apos;s create
+              <br />
+              something meaningful.
+            </h1>
+
+            <p className="handwritten contact-hand">
+              Have a project in mind, a studio looking for someone, or just want
+              to say hi? I&apos;d love to hear from you.
+            </p>
+
+            <div className="contact-links">
+              <a href="mailto:hello@avellox.studio">
+                <Mail size={17} /> hello@avellox.studio
+              </a>
+              <span>
+                <MapPin size={17} /> Sarajevo, Bosnia & Herzegovina
+              </span>
+              <a href="https://github.com/EdinaKurto" target="_blank" rel="noreferrer">
+                <Github size={17} /> GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/edina-kurto-70093230b/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Linkedin size={17} /> LinkedIn
+              </a>
+              <a href="https://www.instagram.com/avelloxy/" target="_blank" rel="noreferrer">
+                <Instagram size={17} /> Instagram
+              </a>
+            </div>
+
+            <div className="availability">
+              <span />
+              Open to game industry opportunities
+            </div>
           </div>
 
-          <div className="contact-socials">
-            <a href="https://github.com/EdinaKurto" target="_blank" rel="noreferrer"><Github size={17} /> GitHub</a>
-            <a href="https://www.linkedin.com/in/edina-kurto-70093230b/" target="_blank" rel="noreferrer"><Linkedin size={17} /> LinkedIn</a>
-            <a href="https://www.instagram.com/avelloxy/" target="_blank" rel="noreferrer"><Instagram size={17} /> Instagram</a>
+          <div className="contact-board">
+            <form className="contact-form-paper" onSubmit={submit}>
+              <Tape />
+              <label>
+                Your name
+                <input name="name" required />
+              </label>
+              <label>
+                Your email
+                <input name="email" type="email" required />
+              </label>
+              <label>
+                Your message
+                <textarea name="message" rows={7} required />
+              </label>
+
+              <button className="button button--primary" disabled={status === "sending"}>
+                {status === "sending" ? "Sending..." : "Send Message"}
+                <Send size={14} />
+              </button>
+
+              {status === "sent" && (
+                <p className="form-status">Message sent — thank you. ♡</p>
+              )}
+              {status === "error" && (
+                <p className="form-status form-status--error">
+                  Something went wrong. Please try again.
+                </p>
+              )}
+            </form>
+
+            <div className="contact-polaroid">
+              <Tape />
+              <img src={hero} alt="Balkan mountain landscape" />
+              <span className="handwritten">somewhere worth remembering</span>
+            </div>
+
+            <div className="envelope">
+              <span className="wax">A</span>
+            </div>
+
+            <MountainSketch className="contact-mountains" />
           </div>
-
-          <div className="availability-line"><span /> Open to game industry opportunities</div>
-        </div>
-
-        <div className="contact-form-scene">
-          <form className="paper-form" onSubmit={handleSubmit}>
-            <span className="tape tape-top" aria-hidden="true" />
-            <label>
-              <span>Your name</span>
-              <input name="name" value={formData.name} onChange={handleChange} required />
-            </label>
-            <label>
-              <span>Your email</span>
-              <input name="email" type="email" value={formData.email} onChange={handleChange} required />
-            </label>
-            <label>
-              <span>Your message</span>
-              <textarea name="message" rows={7} value={formData.message} onChange={handleChange} required />
-            </label>
-
-            {(statusMessage || statusError) && (
-              <p className={statusError ? 'form-status error' : 'form-status'}>{statusError || statusMessage}</p>
-            )}
-
-            <button className="story-button primary" type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Sending…' : 'Send message'} <Send size={16} />
-            </button>
-          </form>
-
-          <div className="contact-postcard handwritten">from Sarajevo,<br/>with too many sketches ♡</div>
-          <div className="contact-envelope" aria-hidden="true"><span>A</span></div>
         </div>
       </section>
     </div>
