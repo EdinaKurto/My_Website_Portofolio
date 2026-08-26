@@ -112,7 +112,23 @@ export function ProjectSingle() {
           <div>
             <p className="handwritten section-hand">about the project</p>
             <h2>Built around a feeling, then turned into systems.</h2>
-            <p>{project.longDescription}</p>
+            {project.longDescription.split(/\n\s*\n/).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+
+            {project.credits && project.credits.length > 0 && (
+              <div className="project-credits">
+                <h3>Credits</h3>
+                {project.credits.map((credit) => (
+                  <p key={credit.name}>
+                    {credit.role}: {" "}
+                    <a href={credit.link} target="_blank" rel="noreferrer">
+                      {credit.name}
+                    </a>
+                  </p>
+                ))}
+              </div>
+            )}
 
             <h3>My role</h3>
             <p>

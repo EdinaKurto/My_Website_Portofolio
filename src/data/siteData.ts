@@ -71,6 +71,11 @@ export interface PortfolioProject {
   perspective: string;
   tags: string[];
   features: string[];
+  credits?: {
+    role: string;
+    name: string;
+    link: string;
+  }[];
   process: {
     title: string;
     description: string;
@@ -212,7 +217,11 @@ export const projects: PortfolioProject[] = [
     description:
       "A branching narrative about love, mistakes and whether a relationship is worth saving.",
     longDescription:
-      "Created as a small visual-novel project with strict limitations, this game focuses on dialogue, player choice and emotional clarity. Its compact scope made each line, visual and branch matter.",
+      `Over the past few weeks, Vincent and his girlfriend Annie have been fighting. When you find Vincent sitting on the floor of his apartment, wrapped in a blanket and staring at static, it is clear that their relationship is close to breaking point.
+
+As his childhood friend, you try to convince him that nothing is set in stone. Vincent is stubborn, and the mistakes he made will not be easy to undo, but the choices you make may help him decide whether the relationship is worth saving.
+
+This game was made for the O2A2 VN Jam 2024, a micro visual novel jam with strict asset limitations and a 1,000-word limit.`,
     cover: stayCover,
     gallery: [stay1, stay2],
     role: "Game Developer / Designer",
@@ -224,6 +233,18 @@ export const projects: PortfolioProject[] = [
       "Two endings",
       "Voice performance",
       "O2A2-style production constraints",
+    ],
+    credits: [
+      {
+        role: "Voice actor",
+        name: "SuzukiSae",
+        link: "https://youtube.com/@suzukisae25?si=a_SyaMv_M8DOwHkf",
+      },
+      {
+        role: "Tester",
+        name: "TheJayDuck",
+        link: "https://www.ardarmutcu.com/",
+      },
     ],
     process: [
       {
@@ -355,7 +376,26 @@ export const projects: PortfolioProject[] = [
     description:
       "A warm virtual-pet experience where a Shiba lives across a set of hand-painted rooms.",
     longDescription:
-      "Dream Life explores cozy interaction and gentle progression through a virtual pet. It combines illustrated environments with simple care systems and character customization.",
+      `Welcome to your Shiba sanctuary!
+
+Take care of an adorable Shiba Inu in this heartwarming virtual pet game, where affection is everything. Whether you're feeding them tasty treats, scrubbing off the mud from their latest adventure, or playing fun little games, your Shiba is always excited to see you.
+
+Your job? Be the best companion ever.
+
+Your Shiba has needs: hunger, cleanliness, and affection. It's up to you to keep them happy, healthy, and stylish. Watch your Shiba react with cute expressions and unlock fun outfits as you level up your bond. Every interaction matters—from head pats to bath time!
+
+
+Features
+
+    Affection, Hunger, and Cleanliness stats that reflect your Shiba’s mood
+    Interactive: feed, bathe, and play!
+    Multiple rooms: kitchen, living room, bathroom
+    Accessories and outfits: sunglasses, crowns, and more
+
+
+Whether you're checking in for a quick session or relaxing with your fluffy friend for longer, there's always something wholesome waiting for you.
+
+Built with care for players who just want to relax, pet a Shiba, and feel good doing it.`,
     cover: shibaCover,
     gallery: [shiba1, shiba2, shiba3],
     role: "Game Developer / Artist",
@@ -367,6 +407,18 @@ export const projects: PortfolioProject[] = [
       "Multiple illustrated rooms",
       "Accessories and outfits",
       "Soft, cozy visual direction",
+    ],
+    credits: [
+      {
+        role: "Programmer",
+        name: "TheJayDuck",
+        link: "https://ardarmutcu.com/",
+      },
+      {
+        role: "Programmer",
+        name: "nobbele",
+        link: "https://nobbele.itch.io/",
+      },
     ],
     process: [
       {
@@ -385,24 +437,42 @@ export const projects: PortfolioProject[] = [
   {
     slug: "docket-13",
     title: "Docket 13",
-    type: "Virtual Pet Game",
+    type: "Horror Game",
     year: "2026",
     status: "Released",
     description:
-      "A warm virtual-pet experience where a Shiba lives across a set of hand-painted rooms.",
+      "Process patient files, uncover hidden records, and decide who disappears inside a looping psychological institution.",
     longDescription:
-      "Dream Life explores cozy interaction and gentle progression through a virtual pet. It combines illustrated environments with simple care systems and character customization.",
+      `Every morning, the files arrive.
+
+No one tells you where they come from.
+No one tells you where they go after they are processed.
+
+Inside the archive of Docket 13, your role is to review patient records for a forgotten psychiatric institution hidden somewhere beneath the system. Approve. Reject. Continue. The work is repetitive, mechanical, almost comforting... until the records begin changing.
+
+Patients describe places that do not exist. Drawings appear inside sealed files. Some records reference conversations that never happened. Others contain names you swear you have already processed. At first, it feels like coincidence. Then the patients begin remembering you.
+
+Beneath the official reports lies something hidden: confiscated sketches, erased histories, restricted notes, and fragments of a truth the institution is desperately trying to bury. The deeper you look, the more unstable the archive becomes. Records duplicate. Images distort. Entire identities vanish overnight.
+
+The Board insists that compassion interferes with progress.
+The files insist otherwise.
+
+As the workload grows and the system tightens its grip, players must decide whether to obey the institution or quietly preserve the evidence hidden between the pages. Every action shapes the archive, alters future records, and changes what waits at the end of the thirteenth day.
+
+Some patients are dangerous.
+Some are lying.
+Some are trying to warn you.`,
     cover: d13Cover,
     gallery: [d1, d2, d3, d13Cover, d4],
     role: "Game Developer / Artist",
     engine: "Unity · C#",
     perspective: "2D",
-    tags: ["Virtual Pet", "2D Art", "Unity"],
+    tags: ["Psychological Horror", "2D Art", "Unity"],
     features: [
-      "Pet needs system",
-      "Multiple illustrated rooms",
-      "Accessories and outfits",
-      "Soft, cozy visual direction",
+      "Patient file processing",
+      "Hidden record discovery",
+      "Identity manipulation",
+      "Cozy visual direction",
     ],
     process: [
       {

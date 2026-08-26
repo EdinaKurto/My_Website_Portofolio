@@ -189,7 +189,7 @@ export const projects: Project[] = [
         {
           role: "Programming",
           name: "nobbele",
-          link: "https://nobbele.dev/",
+          link: "https://nobbele.itch.io/",
         },
       ],
       timeline: "2023 – 2024",
