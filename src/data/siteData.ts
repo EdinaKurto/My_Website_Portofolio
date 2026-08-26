@@ -146,7 +146,7 @@ export const projects: PortfolioProject[] = [
     longDescription:
       "Her Hands Remember is a first-person narrative puzzle experience inspired by Bosnian homes, rituals and family memory. Everyday activities such as making coffee, arranging jars and working with textiles become interactive storytelling devices.",
     cover: hhrCover,
-    gallery: [hhrLiving, hhrKitchen, hhrForest, hhrPast1, hhrPast2],
+    gallery: [hhrLiving, hhrKitchen, hhrForest],
     role: "Solo Developer / Artist",
     engine: "Unity · C#",
     perspective: "First Person",
@@ -175,6 +175,7 @@ export const projects: PortfolioProject[] = [
           "Building custom interactions, narration triggers and pacing systems in Unity.",
       },
     ],
+    developmentGallery: [hhrPast1, hhrPast2],
   },
   {
     slug: "the-woman-who-missed-her-bus",
