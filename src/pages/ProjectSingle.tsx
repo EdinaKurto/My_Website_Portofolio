@@ -111,7 +111,6 @@ export function ProjectSingle() {
         <div className="container project-about__grid">
           <div>
             <p className="handwritten section-hand">about the project</p>
-            <h2>Built around a feeling, then turned into systems.</h2>
             {project.longDescription.split(/\n\s*\n/).map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}

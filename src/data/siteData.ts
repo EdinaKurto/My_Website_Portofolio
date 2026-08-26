@@ -267,9 +267,43 @@ This game was made for the O2A2 VN Jam 2024, a micro visual novel jam with stric
     year: "2025",
     status: "Released",
     description:
-      "A quiet, atmospheric narrative unfolding inside a fortune-teller's tent.",
+      "A narrative  told through a single conversation with someone who sees more than you say.",
     longDescription:
-      "A compact narrative experience focused on atmosphere, character voice and a strong sense of place. The project explores how much emotion can be created with a small setting and carefully controlled visual direction.",
+      `At the edge of nowhere, where the world forgets its name, a single tent waits — silent, still, inevitable.
+
+Inside, the air is thick with time. Candles flicker. Velvet breathes secrets. And she is there.
+
+The Fortune Teller.
+
+She doesn’t ask who you are. She already knows.
+She sees it in the way you hesitate before sitting.
+Hears it in the breath you didn’t realize you were holding.
+Reads it in the way your fingers tremble — not from cold, but memory.
+
+You say nothing.
+
+She deals three cards.
+
+Each one is a mirror.
+A shard of your past. A wound you buried. A choice you once denied.
+And now, it returns — not to haunt, but to ask:
+
+What will you do with what you carry?
+
+You will choose.
+And she will listen — not with pity, but with purpose.
+
+There is no right answer.
+Only honesty.
+Only consequence.
+
+You may only visit her once.
+But in truth, you’ve always been walking toward that tent.
+The question was never if.
+
+It was always when.
+
+Crafted within strict limits for a game jam, The Fortune Teller invites players to step into a moment suspended in time — to look inward, speak a truth, and walk away changed.`,
     cover: fortuneCover,
     gallery: [fortune1, fortune2],
     role: "Game Developer / Artist",
@@ -277,10 +311,12 @@ This game was made for the O2A2 VN Jam 2024, a micro visual novel jam with stric
     perspective: "Visual Novel",
     tags: ["Narrative", "Atmosphere", "Visual Novel"],
     features: [
+      "Minimalist psychological visual novel",
+      "One sprite and one background",
+      "One sound effect and one song",
+      "A single choice with lasting meaning",
       "Compact narrative structure",
       "Moody visual direction",
-      "Character-focused writing",
-      "Small-scope production",
     ],
     process: [
       {
@@ -384,15 +420,6 @@ Your job? Be the best companion ever.
 
 Your Shiba has needs: hunger, cleanliness, and affection. It's up to you to keep them happy, healthy, and stylish. Watch your Shiba react with cute expressions and unlock fun outfits as you level up your bond. Every interaction matters—from head pats to bath time!
 
-
-Features
-
-    Affection, Hunger, and Cleanliness stats that reflect your Shiba’s mood
-    Interactive: feed, bathe, and play!
-    Multiple rooms: kitchen, living room, bathroom
-    Accessories and outfits: sunglasses, crowns, and more
-
-
 Whether you're checking in for a quick session or relaxing with your fluffy friend for longer, there's always something wholesome waiting for you.
 
 Built with care for players who just want to relax, pet a Shiba, and feel good doing it.`,
@@ -489,6 +516,9 @@ Some are trying to warn you.`,
     link: "https://avelloxy.itch.io/docket-13",
   },
 ];
+
+
+
 
 export type ArtworkCategory =
   | "All"
