@@ -1,7 +1,7 @@
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { BotanicalSprig, PaperNote, Tape } from "../components/Decor";
-import { artworks, hero, projects } from "../data/siteData";
+import { artworks, hero, me, projects } from "../data/siteData";
 
 export function Home() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ export function Home() {
 
         <div className="container home-hero__grid">
           <div className="home-hero__copy">
-            <p className="eyebrow">Game developer · artist · storyteller</p>
+            <p className="eyebrow">Game developer · artist · programmer</p>
 
             <h1>
               Crafting
@@ -27,7 +27,7 @@ export function Home() {
 
             <p className="handwritten hero-hand">
               Games are how I remember, feel, and share the places that mean
-              something.
+              something to me.
             </p>
 
             <p className="hero-intro">
@@ -54,7 +54,7 @@ export function Home() {
             <div className="hero-polaroid">
               <Tape />
               <img src={art[2].image} alt={art[2].title} />
-              <span className="handwritten">a world before it becomes a level</span>
+              <span className="handwritten">a concept before it becomes a world</span>
             </div>
 
             <PaperNote className="hero-note">
@@ -77,7 +77,7 @@ export function Home() {
             <h2>Stories I&apos;ve been building.</h2>
             <p>
               A few projects where game systems, visual direction and storytelling
-              are built to support the same feeling.
+              are built to support the same feeling of nostalgia.
             </p>
           </header>
 
@@ -131,7 +131,7 @@ export function Home() {
             <div className="memory-list">
               <span>A photograph.</span>
               <span>A room I remember.</span>
-              <span>An object somebody kept.</span>
+              <span>An object somebody gave me.</span>
               <span>A place that already feels like a story.</span>
             </div>
 
@@ -157,7 +157,7 @@ export function Home() {
               <img src={art[6]?.image ?? art[1].image} alt="" />
             </figure>
             <PaperNote className="memory-note">
-              Keep the imperfect bits. They usually become the interesting ones.
+              I keep the imperfect bits, because they usually become the most interesting ones.
             </PaperNote>
           </div>
         </div>
@@ -193,7 +193,7 @@ export function Home() {
           </div>
 
           <p className="handwritten art-signoff">
-            I collect little moments and turn them into worlds. ♡
+            I take little moments and turn them into worlds. ♡
           </p>
         </div>
       </section>
@@ -201,7 +201,7 @@ export function Home() {
       <section className="about-preview">
         <div className="container about-preview__grid">
           <div className="about-preview__copy">
-            <p className="handwritten section-hand">the person behind it</p>
+            <p className="handwritten section-hand">the "amazing" person behind it</p>
             <h2>Hi, I&apos;m Edina.</h2>
             <p className="about-preview__lead">
               I like games that feel lived-in.
@@ -225,14 +225,14 @@ export function Home() {
 
           <div className="about-preview__board">
             <div className="about-board-image">
-              <img src={art[3].image} alt="A warm creative interior" />
+              <img src={me} alt="ME" />
             </div>
             <PaperNote className="about-board-note">
-              still learning,
+              I'm still learning,
               <br />
               still making,
               <br />
-              still curious.
+              still trying.
             </PaperNote>
             <BotanicalSprig className="about-board-sprig" />
           </div>
@@ -245,7 +245,7 @@ export function Home() {
           <h2>
             Let&apos;s make something
             <br />
-            worth remembering.
+            worth remembering!
           </h2>
           <button className="button button--paper" onClick={() => navigate("/contact")}>
             Get in touch <ArrowRight size={15} />
