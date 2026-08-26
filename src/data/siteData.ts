@@ -33,6 +33,9 @@ import shibaCover from "../photos/Shiba_cover.png";
 import shiba1 from "../photos/Shiba_1.png";
 import shiba2 from "../photos/Shiba_2.png";
 import shiba3 from "../photos/Shiba_3.png";
+import shibaOldKitchen from "../photos/old_dev/low_kitchen_op.png";
+import shibaOldLivingRoom from "../photos/old_dev/Living_Room_Old.png";
+import shibaOldCharacter from "../photos/old_dev/Shiba_old_1.png";
 
 import d13Cover from "../photos/d13_cover.png";
 import d1 from "../photos/d1.png";
@@ -76,6 +79,7 @@ export interface PortfolioProject {
     name: string;
     link: string;
   }[];
+  developmentGallery?: string[];
   process: {
     title: string;
     description: string;
@@ -194,6 +198,7 @@ export const projects: PortfolioProject[] = [
       "Character-focused writing",
       "Small-scope production",
     ],
+    developmentGallery: [fortune1, fortune2],
     process: [
       {
         title: "Mood",
@@ -234,6 +239,7 @@ This game was made for the O2A2 VN Jam 2024, a micro visual novel jam with stric
       "Voice performance",
       "O2A2-style production constraints",
     ],
+    developmentGallery: [stay1, stay2],
     credits: [
       {
         role: "Voice actor",
@@ -435,6 +441,7 @@ Built with care for players who just want to relax, pet a Shiba, and feel good d
       "Accessories and outfits",
       "Soft, cozy visual direction",
     ],
+    developmentGallery: [shibaOldKitchen, shibaOldLivingRoom, shibaOldCharacter],
     credits: [
       {
         role: "Programmer",
@@ -501,6 +508,7 @@ Some are trying to warn you.`,
       "Identity manipulation",
       "Cozy visual direction",
     ],
+    developmentGallery: [d1, d2, d3],
     process: [
       {
         title: "Environment art",

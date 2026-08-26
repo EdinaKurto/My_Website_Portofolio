@@ -169,6 +169,32 @@ export function ProjectSingle() {
         </div>
       </section>
 
+      {project.developmentGallery && project.developmentGallery.length > 0 && (
+        <section className="development-section">
+          <div className="container">
+            <header className="section-heading section-heading--compact">
+              <p className="handwritten section-hand">from the early days</p>
+              <h2>Before it became a finished world.</h2>
+              <p>
+                A few snapshots from the project&apos;s earlier development and
+                visual exploration.
+              </p>
+            </header>
+
+            <div className="development-gallery">
+              {project.developmentGallery.map((image, index) => (
+                <figure key={`${image}-${index}`} className="development-shot">
+                  <img src={image} alt={`${project.title} early development snapshot ${index + 1}`} />
+                  <figcaption className="handwritten">
+                    early snapshot {String(index + 1).padStart(2, "0")}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="next-project">
         <div className="container next-project__inner">
           <div>

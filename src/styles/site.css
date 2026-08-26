@@ -1344,6 +1344,61 @@ svg.about-board-sprig {
   stroke-width: 1.1;
 }
 
+.development-section {
+  padding: 105px 0 115px;
+  background: var(--paper-light);
+}
+
+.development-section .section-heading {
+  max-width: 650px;
+  margin-bottom: 45px;
+}
+
+.development-section .section-heading h2 {
+  margin-bottom: 14px;
+}
+
+.development-section .section-heading > p:last-child {
+  max-width: 500px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.development-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.development-shot {
+  margin: 0;
+}
+
+.development-shot:nth-child(2) {
+  transform: translateY(22px) rotate(1deg);
+}
+
+.development-shot:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.development-shot img {
+  display: block;
+  width: 100%;
+  height: 245px;
+  object-fit: cover;
+  border: 9px solid #fffaf0;
+  box-shadow: 0 12px 28px rgba(61, 46, 31, 0.13);
+}
+
+.development-shot figcaption {
+  display: block;
+  margin-top: 12px;
+  color: var(--brown);
+  font-size: 17px;
+}
+
 .next-project {
   padding: 85px 0;
   color: #eee3d2;
@@ -2282,6 +2337,7 @@ svg.about-board-sprig {
   }
 
   .process-grid,
+  .development-gallery,
   .values-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2454,9 +2510,15 @@ svg.about-board-sprig {
   }
 
   .process-grid,
+  .development-gallery,
   .values-grid,
   .personal-grid {
     grid-template-columns: 1fr;
+  }
+
+  .development-shot:nth-child(2),
+  .development-shot:nth-child(3) {
+    transform: none;
   }
 
   .next-project__inner {
