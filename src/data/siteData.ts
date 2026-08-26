@@ -436,7 +436,7 @@ Built with care for players who just want to relax, pet a Shiba, and feel good d
     perspective: "2D",
     tags: ["Virtual Pet", "2D Art", "Unity"],
     features: [
-      "Pet needs system",
+      "Pet needs care",
       "Multiple illustrated rooms",
       "Accessories and outfits",
       "Soft, cozy visual direction",
