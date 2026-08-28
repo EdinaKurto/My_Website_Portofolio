@@ -35,7 +35,7 @@ export function Navigation() {
       <div className="site-nav__inner">
         <Link className="site-brand" to="/">
           <Sprout size={15} strokeWidth={1.5} />
-          <span>Avellox Studio</span>
+          <span>Avellox</span>
         </Link>
 
         <nav className="desktop-nav" aria-label="Main navigation">
