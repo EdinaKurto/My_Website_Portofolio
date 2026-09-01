@@ -10,13 +10,11 @@ export function Footer() {
         <div>
           <p className="handwritten footer-note">Thank you for stopping by. ♡</p>
           <p className="handwritten footer-note" style={{ fontSize: "0.9em", marginTop: "0.5rem" }}>
-            Here's my main supporter:
+            Here's a photo of{" "}
+            <a href="/src/photos/kenai.png" target="_blank" rel="noreferrer" style={{ textDecoration: "underline" }}>
+              my main supporter
+            </a>
           </p>
-          <img
-            src="/src/photos/kenai.png"
-            alt="Kenai - main supporter"
-            style={{ width: "80px", height: "80px", borderRadius: "8px", marginTop: "0.5rem" }}
-          />
         </div>
 
         <div className="footer-brand">
