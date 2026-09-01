@@ -529,6 +529,8 @@ Some are trying to warn you.`,
 
 
 
+
+
 export type ArtworkCategory =
   | "All"
   | "Environment"
@@ -546,8 +548,24 @@ export interface ArtworkItem {
 }
 
 export const artworks: ArtworkItem[] = [
-  {
+    {
     id: 1,
+    title: "Fragmenti Doma",
+    category: "Mixed Media",
+    year: "2025",
+    image: artFragment,
+    medium: "Mixed media collage",
+  },
+    {
+    id: 2,
+    title: "Bachelor Game Project - Her Hands Remember",
+    category: "3D Environment",
+    year: "2025",
+    image: Her_Hands_Remember_cover,
+    medium: "Video game environment",
+  },
+  {
+    id: 3,
     title: "Dream Life — Bathroom",
     category: "Environment",
     year: "2023",
@@ -555,7 +573,7 @@ export const artworks: ArtworkItem[] = [
     medium: "Digital environment art",
   },
   {
-    id: 2,
+    id: 4,
     title: "Dream Life — Kitchen",
     category: "Environment",
     year: "2023",
@@ -563,7 +581,7 @@ export const artworks: ArtworkItem[] = [
     medium: "Digital environment art",
   },
   {
-    id: 3,
+    id: 5,
     title: "Living Room Study",
     category: "Environment",
     year: "2024",
@@ -571,23 +589,16 @@ export const artworks: ArtworkItem[] = [
     medium: "Digital environment concept",
   },
   {
-    id: 4,
+    id: 6,
     title: "Game Room",
     category: "Concept Art",
     year: "2023",
     image: artGameRoom,
     medium: "Interior concept art",
   },
+
   {
-    id: 5,
-    title: "Fragmenti Doma",
-    category: "Mixed Media",
-    year: "2025",
-    image: artFragment,
-    medium: "Mixed media collage",
-  },
-  {
-    id: 6,
+    id: 7,
     title: "Potion Commotion",
     category: "Illustration",
     year: "2025",
@@ -595,7 +606,7 @@ export const artworks: ArtworkItem[] = [
     medium: "Digital illustration",
   },
   {
-    id: 7,
+    id: 8,
     title: "Julia",
     category: "Concept Art",
     year: "2024",
@@ -603,7 +614,7 @@ export const artworks: ArtworkItem[] = [
     medium: "Character concept sheet",
   },
   {
-    id: 8,
+    id: 9,
     title: "Tišina Između Nas",
     category: "Mixed Media",
     year: "2025",
@@ -635,6 +646,10 @@ export const artworks: ArtworkItem[] = [
     medium: "UI illustration",
   },
 ];
+
+
+
+
 
 export const experience = [
   {
