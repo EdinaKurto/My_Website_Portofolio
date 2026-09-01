@@ -1,5 +1,6 @@
 import hero from "../photos/Hero_Page.png";
 import me from "../photos/me.png";
+import kenai from "../photos/kenai.png";
 
 import hhrCover from "../photos/Her_Hands_Remember_cover.png";
 import hhrLiving from "../photos/Her_Hands_Remember_living_room.png";
@@ -55,7 +56,7 @@ import artComing from "../photos/artworks/YouWereComing.png";
 import artStay from "../photos/artworks/WillTheyStay.png";
 import artMenu from "../photos/artworks/Main_menu_new.png";
 
-export { hero, me };
+export { hero, me, kenai };
 
 export type ProjectStatus = "In Development" | "Released" | "Prototype";
 

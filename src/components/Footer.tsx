@@ -1,4 +1,5 @@
 import { Github, Instagram, Linkedin, Mail, Sprout } from "lucide-react";
+import { kenai } from "../data/siteData";
 
 export function Footer() {
   return (
@@ -11,7 +12,7 @@ export function Footer() {
           <p className="handwritten footer-note">Thank you for stopping by. ♡</p>
           <p className="handwritten footer-note" style={{ fontSize: "0.9em", marginTop: "0.5rem" }}>
             Here's a photo of{" "}
-            <a href="/photos/kenai.png" target="_blank" rel="noreferrer" style={{ textDecoration: "underline" }}>
+            <a href={kenai} target="_blank" rel="noreferrer" style={{ textDecoration: "underline" }}>
               my main supporter
             </a>
           </p>
