@@ -561,7 +561,7 @@ export const artworks: ArtworkItem[] = [
     title: "Bachelor Game Project - Her Hands Remember",
     category: "3D Environment",
     year: "2025",
-    image: Her_Hands_Remember_cover,
+    image: hhrCover,
     medium: "Video game environment",
   },
   {
