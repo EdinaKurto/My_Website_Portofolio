@@ -49,9 +49,8 @@ export function Contact() {
             </p>
 
             <div className="contact-links">
-              <a href="mailto:hello@avellox.studio">
-                <Mail size={17} /> hello@avellox.studio
-              </a>
+              <a href="mailto:avelloxstudio@gmail.com">
+                <Mail size={17} /> avelloxstudio@gmail.com
               <span>
                 <MapPin size={17} /> Sarajevo, Bosnia & Herzegovina
               </span>

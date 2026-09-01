@@ -29,7 +29,7 @@ export function Footer() {
           <a href="https://www.instagram.com/avelloxy/" target="_blank" rel="noreferrer">
             <Instagram size={15} /> Instagram
           </a>
-          <a href="mailto:hello@avellox.studio">
+          <a href="mailto:avelloxstudio@gmail.com">
             <Mail size={15} /> Email
           </a>
         </div>
