@@ -22,7 +22,7 @@ const workExperience = [
     icon: Users,
     featured: true,
     description:
-      "Worked across both strategic and day-to-day operations, helping organise STEM and Erasmus+ activities, coordinate volunteers, plan and deliver events, approach sponsors and partners, support logistics, and keep teams aligned from early planning through delivery.",
+      "Worked across both strategic and day-to-day operations, helping organise STEM activities, coordinate volunteers, plan and deliver events, approach sponsors and partners, support logistics, and keep teams aligned from early planning through delivery.",
     tags: [
       "Leadership",
       "Event Organisation",
