@@ -33,7 +33,7 @@ export function Artwork() {
           <h1>Artwork</h1>
           <p className="page-intro">
             A growing collection of environments, characters, mixed media and
-            visual ideas made across game projects and personal work.
+            visual ideas made across game projects and personal work, not all of them are finished but they do their job.
           </p>
 
           <div className="filter-row">
@@ -69,7 +69,7 @@ export function Artwork() {
           </div>
 
           <p className="handwritten artwork-ending">
-            Beauty is in small things. Stories are in every place. ♡
+            Beauty is in small things, mostly unfinished ideas. ♡
           </p>
         </div>
       </section>
