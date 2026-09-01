@@ -7,12 +7,22 @@ export function Footer() {
       <div className="footer-decoration footer-decoration--right">❋</div>
 
       <div className="container footer-grid">
-        <p className="handwritten footer-note">Thank you for stopping by. ♡</p>
+        <div>
+          <p className="handwritten footer-note">Thank you for stopping by. ♡</p>
+          <p className="handwritten footer-note" style={{ fontSize: "0.9em", marginTop: "0.5rem" }}>
+            Here's my main supporter:
+          </p>
+          <img
+            src="/src/photos/kenai.png"
+            alt="Kenai - main supporter"
+            style={{ width: "80px", height: "80px", borderRadius: "8px", marginTop: "0.5rem" }}
+          />
+        </div>
 
         <div className="footer-brand">
           <Sprout size={20} strokeWidth={1.4} />
           <h2>Avellox Studio</h2>
-          <p className="handwritten">Stories. Worlds. Memories.</p>
+          <p className="handwritten">Stories. Narratives. Memories.</p>
         </div>
 
         <div className="footer-social">
