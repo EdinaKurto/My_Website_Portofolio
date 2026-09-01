@@ -184,7 +184,7 @@ export const projects: PortfolioProject[] = [
     year: "2026",
     status: "Released",
     description:
-      "A quiet, atmospheric narrative unfolding inside a fortune-teller's tent.",
+      "A quiet conversationunfolding near a forgotten bus stop.",
     longDescription:
       "A compact narrative experience focused on atmosphere, character voice and a strong sense of place. The project explores how much emotion can be created with a small setting and carefully controlled visual direction.",
     cover: TWWMHBCover,
