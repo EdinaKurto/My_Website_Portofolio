@@ -2,6 +2,8 @@ import hero from "../photos/Hero_Page.png";
 import me from "../photos/me.png";
 import kenai from "../photos/kenai.png";
 
+import EM from "../photos/ethos_mythos.png";
+
 import hhrCover from "../photos/Her_Hands_Remember_cover.png";
 import hhrLiving from "../photos/Her_Hands_Remember_living_room.png";
 import hhrKitchen from "../photos/Her_Hands_Remember_kitchen.png";
@@ -278,8 +280,8 @@ This game was made for the O2A2 VN Jam 2024, a micro visual novel jam with stric
       "A mythic action adventure where belief, identity and consequence shape a world in motion.",
     longDescription:
       "Ethos Mythos is a story-rich action adventure built around mythic conflict, personal conviction and the weight of choice. The project blends exploration, combat and narrative encounters to explore how a world changes when belief becomes power.",
-    cover: hero,
-    gallery: [hero],
+    cover: EM,
+    gallery: [EM],
     role: "Game Developer / Designer",
     engine: "Unity · C#",
     perspective: "Third Person",
