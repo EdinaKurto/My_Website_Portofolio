@@ -269,6 +269,42 @@ This game was made for the O2A2 VN Jam 2024, a micro visual novel jam with stric
     link: "https://avelloxy.itch.io/will-they-stay-together",
   },
   {
+    slug: "ethos-mythos",
+    title: "Ethos Mythos",
+    type: "Narrative Action Adventure",
+    year: "2025",
+    status: "Released",
+    description:
+      "A mythic action adventure where belief, identity and consequence shape a world in motion.",
+    longDescription:
+      "Ethos Mythos is a story-rich action adventure built around mythic conflict, personal conviction and the weight of choice. The project blends exploration, combat and narrative encounters to explore how a world changes when belief becomes power.",
+    cover: hero,
+    gallery: [hero],
+    role: "Game Developer / Designer",
+    engine: "Unity · C#",
+    perspective: "Third Person",
+    tags: ["Action Adventure", "Narrative", "Mythic Fantasy"],
+    features: [
+      "Action-oriented exploration",
+      "Choice-driven narrative beats",
+      "Mythic worldbuilding",
+      "Combat and progression loop",
+    ],
+    process: [
+      {
+        title: "Worldbuilding",
+        description:
+          "Designing a fantasy setting where belief and culture shape both the world and the player's decisions.",
+      },
+      {
+        title: "Systems",
+        description:
+          "Balancing exploration, combat and story moments so the game remains readable and cohesive.",
+      },
+    ],
+    link: "https://store.steampowered.com/app/4431670/Ethos_Mythos/",
+  },
+  {
     slug: "you-were-always-coming",
     title: "You Were Always Coming",
     type: "Narrative Game",
